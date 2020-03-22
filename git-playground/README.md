@@ -32,11 +32,12 @@ Make sure download is at same place (by default), check using `which git`
 ----
 ## Git `clone` / `pull` / `fetch`
 ##### Documentation
-- [Rebase](https://git-scm.com/docs/git-rebase)
-- [Pull]()
-- [Fetch]()
-- [Clone]()
 - [Fork]()
+- [Pull]()
+- [Clone]()
+- [Fetch]()
+- [Rebase](https://git-scm.com/docs/git-rebase) ``
+- [Merge](https://git-scm.com/docs/git-merge)   ``
 
 ### `Pull` versus `fetch`
 
