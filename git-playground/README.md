@@ -1,5 +1,6 @@
 # Git Playground
 
+----
 ## Downloading/updating
 Installing and upgrading git: https://confluence.atlassian.com/bitbucketserver/installing-and-upgrading-git-776640906.html
 
@@ -27,6 +28,40 @@ brew update && brew upgrade
 ### Windows
 Download from installer: https://gitforwindows.org/ <br>
 Make sure download is at same place (by default), check using `which git`
+
+----
+
+## Tracking changes
+
+### Updating `.gitignore`
+##### StackOverflow Q/A
+- https://stackoverflow.com/questions/1274057/how-to-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore
+
+##### Example
+```bash
+# removing single file from cache
+git rm --cached <file>
+# removing entire directory from cache
+git rm -r --cached <folder>
+```
+
+### Seeing which files are tracked
+##### StackOverflow Q/A
+- https://stackoverflow.com/questions/15606955/how-can-i-make-git-show-a-list-of-the-files-that-are-being-tracked/15606998
+
+###### Example
+```bash
+# see tracked files in current directory
+git ls-files
+
+# see tracked files in branch
+git ls-tree -r master --name-only
+
+# see tracked files from current branch
+git ls-tree -r HEAD --name-only
+```
+
+----
 
 ## Sparse-checkout
 ##### [Documentation](https://git-scm.com/docs/git-sparse-checkout)
