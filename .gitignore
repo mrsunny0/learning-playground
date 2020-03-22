@@ -3,4 +3,4 @@ node_modules
 
 # ignore visual studio code IDEs
 .code*
-.code-workspace
+.code-workspace*
