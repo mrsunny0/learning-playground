@@ -30,6 +30,23 @@ Download from installer: https://gitforwindows.org/ <br>
 Make sure download is at same place (by default), check using `which git`
 
 ----
+## Git `clone` / `pull` / `fetch`
+##### Documentation
+- [Rebase](https://git-scm.com/docs/git-rebase)
+- [Pull]()
+- [Fetch]()
+- [Clone]()
+- [Fork]()
+
+### `Pull` versus `fetch`
+
+##### StackOverflow Q/A
+- https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch
+
+### When to `merge` versus `rebase`
+
+
+----
 
 ## Tracking changes
 
