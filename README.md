@@ -4,6 +4,7 @@
 
 ```
 # [Header of README.md]
+- Convention: <ROOT FOLDER NAME> - <SUBFOLDER NAME>
 - Example:
 
 ## High level topic
