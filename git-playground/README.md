@@ -30,7 +30,9 @@ Download from installer: https://gitforwindows.org/ <br>
 Make sure download is at same place (by default), check using `which git`
 
 ----
-## Git `clone` / `pull` / `fetch`
+
+## Git clone / pull / fetch
+
 ##### Documentation
 - [Fork]()
 - [Pull]()
@@ -39,13 +41,13 @@ Make sure download is at same place (by default), check using `which git`
 - [Rebase](https://git-scm.com/docs/git-rebase) ``
 - [Merge](https://git-scm.com/docs/git-merge)   ``
 
-### `Pull` versus `fetch`
+
+### Pull versus fetch
 
 ##### StackOverflow Q/A
 - https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch
 
-### When to `merge` versus `rebase`
-
+### When to merge versus rebase
 
 ----
 
@@ -79,11 +81,51 @@ git ls-tree -r master --name-only
 git ls-tree -r HEAD --name-only
 ```
 
+### Difference between rm and reset
+##### Documentation
+- rm: https://git-scm.com/docs/git-rm
+- reset:
+
+##### StackOverflow Q/A
+- https://stackoverflow.com/questions/38001223/what-is-the-difference-between-git-rm-cached-and-git-reset-file
+
+##### Example
+```bash
+# un-add all files
+git reset <file>
+
+# git rm will prevent file from tracking index (if not already in index)
+git rm <file>
+
+# git rm --cache will remove a file from tracked index, and its entire history
+git rm --cache
+```
+
+### Stashing changes
+##### Documentation
+- stash: https://git-scm.com/docs/git-stash
+
+##### Example
+```bash
+# stash files
+git stash
+
+# unstash the top-most stashed files
+git stash pop
+```
+
+----
+
+## Sparse-checkout
+##### Documentation
+ - sparse-checkout: https://git-scm.com/docs/git-sparse-checkout) <br>Requires git > 2.25
+
 ----
 
 ## Sparse-checkout
 ##### [Documentation](https://git-scm.com/docs/git-sparse-checkout)
 Requires git > 2.25
+
 
 ##### StackOverflow Q/A
 - https://stackoverflow.com/questions/4114887/is-it-possible-to-do-a-sparse-checkout-without-checking-out-the-whole-repository
