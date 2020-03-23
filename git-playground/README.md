@@ -120,13 +120,6 @@ git stash pop
 ##### Documentation
  - sparse-checkout: https://git-scm.com/docs/git-sparse-checkout) <br>Requires git > 2.25
 
-----
-
-## Sparse-checkout
-##### [Documentation](https://git-scm.com/docs/git-sparse-checkout)
-Requires git > 2.25
-
-
 ##### StackOverflow Q/A
 - https://stackoverflow.com/questions/4114887/is-it-possible-to-do-a-sparse-checkout-without-checking-out-the-whole-repository
 
