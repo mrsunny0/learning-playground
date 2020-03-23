@@ -30,7 +30,9 @@ Download from installer: https://gitforwindows.org/ <br>
 Make sure download is at same place (by default), check using `which git`
 
 ----
+
 ## Git clone / pull / fetch
+
 ##### Documentation
 - [Fork]()
 - [Pull]()
@@ -38,6 +40,7 @@ Make sure download is at same place (by default), check using `which git`
 - [Fetch]()
 - [Rebase](https://git-scm.com/docs/git-rebase) ``
 - [Merge](https://git-scm.com/docs/git-merge)   ``
+
 
 ### Pull versus fetch
 
@@ -116,6 +119,13 @@ git stash pop
 ## Sparse-checkout
 ##### Documentation
  - sparse-checkout: https://git-scm.com/docs/git-sparse-checkout) <br>Requires git > 2.25
+
+----
+
+## Sparse-checkout
+##### [Documentation](https://git-scm.com/docs/git-sparse-checkout)
+Requires git > 2.25
+
 
 ##### StackOverflow Q/A
 - https://stackoverflow.com/questions/4114887/is-it-possible-to-do-a-sparse-checkout-without-checking-out-the-whole-repository
