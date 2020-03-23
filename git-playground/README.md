@@ -1,6 +1,5 @@
 # Git Playground
 
-----
 ## Downloading/updating
 Installing and upgrading git: https://confluence.atlassian.com/bitbucketserver/installing-and-upgrading-git-776640906.html
 
@@ -29,7 +28,6 @@ brew update && brew upgrade
 Download from installer: https://gitforwindows.org/ <br>
 Make sure download is at same place (by default), check using `which git`
 
-----
 ## Git clone / pull / fetch
 ##### Documentation
 - [Fork]()
@@ -45,8 +43,6 @@ Make sure download is at same place (by default), check using `which git`
 - https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch
 
 ### When to merge versus rebase
-
-----
 
 ## Tracking changes
 
@@ -111,9 +107,7 @@ git stash
 git stash pop
 ```
 
-----
-
-## Sparse-checkout
+### Sparse-checkout
 ##### Documentation
  - sparse-checkout: https://git-scm.com/docs/git-sparse-checkout) <br>Requires git > 2.25
 
