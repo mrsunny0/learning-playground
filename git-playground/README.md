@@ -30,7 +30,7 @@ Make sure download is at same place (by default), check using `which git`
 
 ## Git clone / pull / fetch
 
-##### Documentation
+_Documentation_
 - [Fork]()
 - [Pull]()
 - [Clone]()
@@ -41,7 +41,7 @@ Make sure download is at same place (by default), check using `which git`
 
 ### Pull versus fetch
 
-##### StackOverflow Q/A
+_StackOverflow Q/A_
 - https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch
 
 ### When to merge versus rebase
@@ -49,10 +49,10 @@ Make sure download is at same place (by default), check using `which git`
 ## Tracking changes
 
 ### Updating `.gitignore`
-##### StackOverflow Q/A
+_StackOverflow Q/A_
 - https://stackoverflow.com/questions/1274057/how-to-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore
 
-##### Example
+_Example_
 ```bash
 # removing single file from cache
 git rm --cached <file>
@@ -61,10 +61,10 @@ git rm -r --cached <folder>
 ```
 
 ### Seeing which files are tracked
-##### StackOverflow Q/A
+_StackOverflow Q/A_
 - https://stackoverflow.com/questions/15606955/how-can-i-make-git-show-a-list-of-the-files-that-are-being-tracked/15606998
 
-###### Example
+#_Example_
 ```bash
 # see tracked files in current directory
 git ls-files
@@ -77,14 +77,14 @@ git ls-tree -r HEAD --name-only
 ```
 
 ### Difference between rm and reset
-##### Documentation
+_Documentation_
 - rm: https://git-scm.com/docs/git-rm
 - reset:
 
-##### StackOverflow Q/A
+_StackOverflow Q/A_
 - https://stackoverflow.com/questions/38001223/what-is-the-difference-between-git-rm-cached-and-git-reset-file
 
-##### Example
+_Example_
 ```bash
 # un-add all files
 git reset <file>
@@ -97,10 +97,10 @@ git rm --cache
 ```
 
 ### Stashing changes
-##### Documentation
+_Documentation_
 - stash: https://git-scm.com/docs/git-stash
 
-##### Example
+_Example_
 ```bash
 # stash files
 git stash
@@ -110,13 +110,13 @@ git stash pop
 ```
 
 ### Sparse-checkout
-##### Documentation
+_Documentation_
  - sparse-checkout: https://git-scm.com/docs/git-sparse-checkout) <br>Requires git > 2.25
 
-##### StackOverflow Q/A
+_StackOverflow Q/A_
 - https://stackoverflow.com/questions/4114887/is-it-possible-to-do-a-sparse-checkout-without-checking-out-the-whole-repository
 
-##### Example
+_Example_
 ```bash
 # clone directory but without any checked out files
 git clone <URL> --no-checkout <directory>
