@@ -1,4 +1,0 @@
-header1	header2	header3
-11	22	333
-a	b	c
-sentence1	sentence2	sentence3
