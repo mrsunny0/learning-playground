@@ -1,5 +1,6 @@
-## Computer Playground - Ubuntu
+# Computer Playground - Ubuntu
 
+## Adding git branch on command line
 Adding git branch name to command line:
 https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt
 
@@ -21,3 +22,19 @@ unset color_prompt force_color_prompt
 Minor customization
 - add a space before `$(parse_git_branch)` to separate the pathname from gitname
 - add a new line `\n` before `\$` at the end of the script to put the user input on a new line
+
+## Dual Screen
+
+### Allow sidebars to Show
+_StackOverflow Q/A_
+- https://askubuntu.com/questions/966841/ubuntu-17-10-secondary-display-issue-missing-menubar-launcher-and-bar-on-top-o
+
+![](https://i.stack.imgur.com/v8FN1.png)
+
+### Allow both desktops to move between workspaces
+_StackOverflow Q/A_
+- https://askubuntu.com/questions/1059479/dual-monitor-workspaces-in-ubuntu-18-04
+
+```bash
+gsettings set org.gnome.mutter workspaces-only-on-primary false
+```
