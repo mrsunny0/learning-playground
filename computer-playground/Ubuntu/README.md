@@ -1,5 +1,12 @@
 # Computer Playground - Ubuntu
 
+## Installing terminator
+![](https://4.bp.blogspot.com/-kaRacC5Jdo8/UJUg-gTG7kI/AAAAAAAABBw/iYiRnZ0t8vA/s1600/Screenshot%2Bat%2B2012-11-03%2B19%253A08%253A57.png)
+```bash
+sudo apt-get update
+sudo apt-get install terminator
+```
+
 ## Adding git branch on command line
 Adding git branch name to command line:
 https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt
