@@ -46,9 +46,29 @@ _StackOverflow Q/A_
 
 ### When to merge versus rebase
 
+### Forcing git pull to override local changes
+
+_Website_
+- https://www.w3docs.com/snippets/git/how-to-force-git-pull-to-override-local-files.html
+
+_Example_
+```bash
+git fetch
+git reset --hard origin/master
+
+# to store or remove local changes
+git stash
+git stash drop
+
+# or to bring back local changes
+git stash
+git stash pop
+# ... git add, git commit
+```
+
 ## Tracking changes
 
-### Updating `.gitignore`
+### Updating .gitignore
 _StackOverflow Q/A_
 - https://stackoverflow.com/questions/1274057/how-to-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore
 
@@ -64,7 +84,7 @@ git rm -r --cached <folder>
 _StackOverflow Q/A_
 - https://stackoverflow.com/questions/15606955/how-can-i-make-git-show-a-list-of-the-files-that-are-being-tracked/15606998
 
-#_Example_
+_Example_
 ```bash
 # see tracked files in current directory
 git ls-files
