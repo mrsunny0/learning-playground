@@ -39,12 +39,49 @@ _Using Admin PowerShell_
 ```bash
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
-
 ![](https://code.visualstudio.com/assets/remote-tutorials/wsl/powershell-output.png)
+
+### Setting WSL Distro and Version
+https://docs.microsoft.com/en-us/windows/wsl/wsl2-install
+
+```bash
+# check distro and version
+wsl --list --verbose
+
+# set distro and version
+wsl --set-version <Distro> 2
+
+# or use alias
+wsl --set-default-version 2
+```
+
+Download distros: https://docs.microsoft.com/en-us/windows/wsl/install-manual
 
 ## Windows Terminal (preview)
 Install Windows Terminal: https://github.com/microsoft/terminal
 ![](https://i0.wp.com/www.onmsft.com/wp-content/uploads/2019/06/Windows-Terminal-Microsoft-Promo.png?fit=1365%2C768&ssl=1)
+
+
+### Changing wsl PS1
+_StackOverflow Q/A_ <br>
+https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt
+
+_Control color_ <br>
+https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
+
+```bash
+# Get git branch name
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# Custom green/white/gold(git)
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+# Custom green/blue/red(git)
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;3
+1m\] $(parse_git_branch)\[\033[00m\]\n\$ '
+```
 
 ## Nodejs installation
 Install nvm: https://github.com/coreybutler/nvm-windows
