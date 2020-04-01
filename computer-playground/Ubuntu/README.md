@@ -1,5 +1,13 @@
 # Computer Playground - Ubuntu
 
+## Downloading image
+https://ubuntu.com/download/desktop
+- [x] 2 GHz dual core processor or better
+- [x] 4 GB system memory
+- [ ] 25 GB of free hard drive space
+- [ ] Either a DVD drive or a USB port for the installer media
+- [x] Internet access is helpful
+
 ## Installing terminator
 ![](https://4.bp.blogspot.com/-kaRacC5Jdo8/UJUg-gTG7kI/AAAAAAAABBw/iYiRnZ0t8vA/s1600/Screenshot%2Bat%2B2012-11-03%2B19%253A08%253A57.png)
 ```bash
