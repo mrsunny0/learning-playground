@@ -45,3 +45,49 @@ _StackOverflow Q/A_
 ```bash
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 ```
+
+### Isolating workspaces (so no duplicate apps on sidebar)
+_StackOverflow Q/A_
+- https://askubuntu.com/questions/305962/setting-to-only-show-applications-of-current-workspace-in-launcher
+
+Install dconf-editor
+```bash
+sudo apt install dconf-editor
+```
+
+![](https://i.stack.imgur.com/QmyDh.png)
+
+## Installing Anaconda
+
+Install website: https://www.anaconda.com/
+```bash
+# when downloaded, must run bash script
+bash Anaconda3-2020.02-Linux-x86_64.sh
+```
+
+Removing conda (base)
+```bash
+# removing (base) from terminal, do not allow conda to init at beginning
+conda config --set auto_activate_base false
+
+# to activate base
+conda activate # no args
+
+# to activate another env
+conda activate env
+
+# to deactivate
+conda deactivate
+```
+
+## Accelerating Chrome
+_StackOverflow Q/A_
+- https://askubuntu.com/questions/712504/chrome-running-slow
+
+Go to chrome and search for: `chrome://settings/?search=hardware`
+- Turn off hardware acceleration
+- Also, turn off background applications
+
+
+
+![](https://i.stack.imgur.com/1eCDf.jpg)
