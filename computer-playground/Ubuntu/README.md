@@ -88,6 +88,6 @@ Go to chrome and search for: `chrome://settings/?search=hardware`
 - Turn off hardware acceleration
 - Also, turn off background applications
 
-
-
 ![](https://i.stack.imgur.com/1eCDf.jpg)
+
+**NOTE:** Firefox may be faster on Linux than Chrome, vice-versa for Windows
