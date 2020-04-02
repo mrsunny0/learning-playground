@@ -19,15 +19,18 @@ Go to `Settings > System > Multitasking`
 ## VMWare
 Linux Sub-system and VMWare need to access the same Hyper-V system, which breaks.
 Updating VMWare, or waiting for the new Linux Sub-system release will work.
-https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html (updated March 2020)
+https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html (_updated March 2020_)
 
 ### VMWare Tech Preview
-[Download link](Direct Download Link) to 20H1 Tech Preview: https://blogs.vmware.com/workstation
+[Download link](https://blogs.vmware.com/workstation) to 20H1 Tech Preview:
 
 ![](https://578202.smushcdn.com/777453/wp-content/uploads/2020/01/The-new-Tech-Preview-user-interface.png?lossy=1&strip=1&webp=1)
 
+Note: for some reason existing or new VMs will have warning of degradation. This should be okay, continue. <br>
+![](https://www.siberportal.org/wp-content/uploads/2016/06/downloading-and-installing-vmware-workstation-and-importing-first-virtual-machine-19.jpg)
+
 ### Disabling Hyper-V
-This will deactivate WSL
+To isolated Hyper-V usage to the VM directly, thus disabling WSL.
 
 ```bash
 # disabling with admin priveleges
@@ -47,14 +50,13 @@ bcdedit /set hypervisorlaunchtype auto
 ### Enabling WSL
 https://code.visualstudio.com/remote-tutorials/wsl/enable-wsl#_check
 
-_Using Windows Feature Dialog_
+Using Windows Feature Dialog
 ![](https://code.visualstudio.com/assets/remote-tutorials/wsl/windows-features.png)
 
-_Using Admin PowerShell_
+Using Admin PowerShell
 ```bash
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
-![](https://code.visualstudio.com/assets/remote-tutorials/wsl/powershell-output.png)
 
 ### Setting WSL Distro and Version
 https://docs.microsoft.com/en-us/windows/wsl/wsl2-install
@@ -70,38 +72,27 @@ wsl --set-version <Distro> 2
 wsl --set-default-version 2
 ```
 
-Download distros: https://docs.microsoft.com/en-us/windows/wsl/install-manual
-
-## Installing components on WSL Ubuntu 18.04
-
-### Anaconda
-
-### Aliases
-
-## Command Line
-
-## Setting Custom Paths to host
-https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
+[Download distros here](https://docs.microsoft.com/en-us/windows/wsl/install-manual), or go to Windows Play Store to download.
 
 
-<!-- ----------------------------------------------------------------------- -->
-<!-- Command Prompt -->
-<!-- ----------------------------------------------------------------------- -->
+### Entering WSL
+```bash
+bash
+
+# or
+wsl
+
+# or enter directly using the provided command prompt environment
+```
 
 <!-- ----------------------------------------------------------------------- -->
-<!-- Command Line Tools -->
+<!-- WSL Linux Subsystem -->
 <!-- ----------------------------------------------------------------------- -->
-## Windows Terminal (preview)
-Install Windows Terminal: https://github.com/microsoft/terminal
-![](https://i0.wp.com/www.onmsft.com/wp-content/uploads/2019/06/Windows-Terminal-Microsoft-Promo.png?fit=1365%2C768&ssl=1)
+## Customizing WSL (Ubuntu 18.04)
 
-
-### Changing wsl PS1
-_StackOverflow Q/A_ <br>
-https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt
-
-_Control color_ <br>
-https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
+### Edit PS1
+- Show git branch - https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt
+- Change color scheme - https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
 
 ```bash
 # Get git branch name
@@ -117,39 +108,95 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 1m\] $(parse_git_branch)\[\033[00m\]\n\$ '
 ```
 
-## Unix Commands
+### Running Windows Commands
+WSL tries to convert the `$PATHS` from Windows to Unix; however, many of the commands have to be executed with `<command>.exe`, where `.exe` is required in the prompt.  
 
-### WSL bash
-```bash
-bash
-```
-
-### Cash
-Install CASH: https://github.com/dthree/cash
+Special notes are that certain executables in the windows systems turn into .bash or .sh scripts, notably Atom. This is circumvented by calling the original command prompt arguments (assuming its in the path). Refer to StackOverflow Q/A: https://superuser.com/questions/1185214/opening-atom-in-current-directory-in-wsl, where a function. These additions can be added to the `~/.bashrc`
 
 ```bash
-# get commands
-npm install cash -g
+# Path variables on WSL and Win host systems
+root_wsl="\\wsl$\Ubuntu-18.04\home\mrsunny" # found in windows
+root_win="/mnt/c/Users/ge0rge" # found in wsl
 
-# run to get all commands as global
-npm install cash-global -g
+# Create aliases
+alias explorer=explorer.exe
+alias conda=conda.exe
+alias notepad=/mnt/c/windows/system32/notepad.exe
+alias sublime="/mnt/c/Program\ Files/Sublime\ Text\ 3/subl.exe"
+atom () {
+  # note that once cmd is called, all paths are relative to the win system
+  # therefore ./ is appropriate to use for the current directory
+  /mnt/c/Windows/System32/cmd.exe /c "atom ./$1"
+}
 ```
 
-### Cygwin
+<!-- ----------------------------------------------------------------------- -->
+<!-- Windows -->
+<!-- ----------------------------------------------------------------------- -->
+## Windows Development
 
-### MGWWin32
-
-### Github
-
-## Checking Build
+### Check Build
 ```cmd
 winver
 ```
-
 ![](https://support.techsmith.com/hc/article_attachments/115002725732/2017-10-11_8-39-12.png)
 
-## Nodejs installation
+### Nodejs NVM Installation
 Install nvm: https://github.com/coreybutler/nvm-windows
 ![](https://camo.githubusercontent.com/7a297909471d50f1a8afc353ecb5a07f9eb54e83/687474703a2f2f692e696d6775722e636f6d2f424e6c636269342e706e67)
 
-## Hotkeys
+Location of nvm is
+```bash
+C:\Users\ge0rg\AppData\Roaming\nvm\
+```
+
+Location of accessible modules (-g)
+```bash
+# aliased from nvm folder specific to node version in use
+C:\Program Files\nodejs
+```
+
+### Accessing UNIX commands (without WSL)
+- [CASH](https://github.com/dthree/cash) <br>
+  ```bash
+  # get commands
+  npm install cash -g
+
+  # run to get all commands as global
+  npm install cash-global -g
+  ```
+  cash-global is stored in `node_modules` in `C:\Program Files\nodejs` (nvm symlink to nodejs version)<br>
+  therefore, manually copy all files in `node_modules\cash-global\bin folder` to nodejs root for accessibility. Run <br>
+  ```bash
+  # Run node, or npm, or cash, to find location of global executables
+  which node
+  ```
+- [Cygwin](https://www.cygwin.com/) (not recommended)
+- [MinGW32](http://www.mingw.org/)
+- [Github](https://desktop.github.com/)
+
+### Windows Insider Program
+Join the Windows Insider Program to install the Fast or Slow Rings: https://insider.windows.com/en-us/welcome-back/
+
+![](https://wipwebprodcdnv2.blob.core.windows.net/wipmedia/wp-content/uploads/sites/8/2018/05/for-business-getting-started-01.png)
+
+### Windows Terminal (preview)
+Install Windows Terminal: https://github.com/microsoft/terminal
+![](https://i0.wp.com/www.onmsft.com/wp-content/uploads/2019/06/Windows-Terminal-Microsoft-Promo.png?fit=1365%2C768&ssl=1)
+
+Control profile and UI via `profiles.json` in Settings.
+```JSON
+# Example profile
+{
+    "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+    "hidden": false,
+    "name": "Ubuntu-18.04",
+    "source": "Windows.Terminal.Wsl",
+    "startingDirectory": "%USERPROFILE%",
+    "fontSize": 10,
+    "tabTitle" : "ubuntu",
+    "suppressApplicationTitle" : true,
+    "useAcrylic": true,
+    "acrylicOpacity" : 0.85
+},
+```

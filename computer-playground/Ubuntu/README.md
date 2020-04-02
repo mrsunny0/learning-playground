@@ -154,3 +154,7 @@ Ran on April 1st, 2020. First time: >**1500**; with VMWare-Tools: >**897.3**, fo
 ### Track Performance on Host
 ctrl+shift+esc (Task Manager) > Performance Tab <br>
 Can also check the number of sockets, cores, processors, virtualization, etc.
+
+
+### Paths
+https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
