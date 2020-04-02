@@ -1,12 +1,22 @@
 # Computer playground - Windows
 
+<!-- ----------------------------------------------------------------------- -->
+<!-- Desktop Notes -->
+<!-- ----------------------------------------------------------------------- -->
 ## Desktop Navigation
+
+### Window Snapping
 Stop smart aerosnapping: https://botcrawl.com/when-i-snap-a-window-show-what-i-can-snap-next-to-it-windows-10/
 
 Go to `Settings > System > Multitasking`
 ![](https://botcrawl.com/wp-content/uploads/2015/07/When-I-snap-a-window-show-what-I-can-snap-next-to-it-Windows-10.png)
 
-## Hyper-V and VMWare/WSL
+### Hotkeys
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Virtual Machines -->
+<!-- ----------------------------------------------------------------------- -->
+## VMWare
 Linux Sub-system and VMWare need to access the same Hyper-V system, which breaks.
 Updating VMWare, or waiting for the new Linux Sub-system release will work.
 https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html (updated March 2020)
@@ -28,6 +38,11 @@ bcdedit /set hypervisorlaunchtype auto
 
 # need to restart
 ```
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- WSL Linux Subsystem -->
+<!-- ----------------------------------------------------------------------- -->
+## WSL2 & Ubuntu
 
 ### Enabling WSL
 https://code.visualstudio.com/remote-tutorials/wsl/enable-wsl#_check
@@ -57,6 +72,25 @@ wsl --set-default-version 2
 
 Download distros: https://docs.microsoft.com/en-us/windows/wsl/install-manual
 
+## Installing components on WSL Ubuntu 18.04
+
+### Anaconda
+
+### Aliases
+
+## Command Line
+
+## Setting Custom Paths to host
+https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
+
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Command Prompt -->
+<!-- ----------------------------------------------------------------------- -->
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Command Line Tools -->
+<!-- ----------------------------------------------------------------------- -->
 ## Windows Terminal (preview)
 Install Windows Terminal: https://github.com/microsoft/terminal
 ![](https://i0.wp.com/www.onmsft.com/wp-content/uploads/2019/06/Windows-Terminal-Microsoft-Promo.png?fit=1365%2C768&ssl=1)
@@ -82,10 +116,6 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;3
 1m\] $(parse_git_branch)\[\033[00m\]\n\$ '
 ```
-
-## Nodejs installation
-Install nvm: https://github.com/coreybutler/nvm-windows
-![](https://camo.githubusercontent.com/7a297909471d50f1a8afc353ecb5a07f9eb54e83/687474703a2f2f692e696d6775722e636f6d2f424e6c636269342e706e67)
 
 ## Unix Commands
 
@@ -117,5 +147,9 @@ winver
 ```
 
 ![](https://support.techsmith.com/hc/article_attachments/115002725732/2017-10-11_8-39-12.png)
+
+## Nodejs installation
+Install nvm: https://github.com/coreybutler/nvm-windows
+![](https://camo.githubusercontent.com/7a297909471d50f1a8afc353ecb5a07f9eb54e83/687474703a2f2f692e696d6775722e636f6d2f424e6c636269342e706e67)
 
 ## Hotkeys
