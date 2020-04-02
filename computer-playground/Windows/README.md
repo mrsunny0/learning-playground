@@ -11,7 +11,31 @@ Stop smart aerosnapping: https://botcrawl.com/when-i-snap-a-window-show-what-i-c
 Go to `Settings > System > Multitasking`
 ![](https://botcrawl.com/wp-content/uploads/2015/07/When-I-snap-a-window-show-what-I-can-snap-next-to-it-Windows-10.png)
 
+### Creating Symlinks
+Using a GUI provided by https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
+![](https://i.stack.imgur.com/FvPez.png)
+
+```bash
+# Link is your made-up destination; Target is the actual location
+mklink Link Target
+
+# soft link to a directory
+mklink /D Link Target
+
+# hard link to a file
+mklink /H Link Target
+
+# hard link to a directory
+mklink /J Link Target
+```
+
 ### Hotkeys
+- `cmd + tab` = show all currente windows
+- `cmd + q` = finder
+- `cmd + arrows` = move window position
+- `cmd + shift + left/right arrows` = move window to second monitor
+- `cmd + ctrl + left/right arrows` = move to new working desktop
+
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- Virtual Machines -->
@@ -86,7 +110,7 @@ wsl
 ```
 
 <!-- ----------------------------------------------------------------------- -->
-<!-- WSL Linux Subsystem -->
+<!-- Customizing WSL-->
 <!-- ----------------------------------------------------------------------- -->
 ## Customizing WSL (Ubuntu 18.04)
 
@@ -108,7 +132,7 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 1m\] $(parse_git_branch)\[\033[00m\]\n\$ '
 ```
 
-### Running Windows Commands
+### Running Window Commands
 WSL tries to convert the `$PATHS` from Windows to Unix; however, many of the commands have to be executed with `<command>.exe`, where `.exe` is required in the prompt.  
 
 Special notes are that certain executables in the windows systems turn into .bash or .sh scripts, notably Atom. This is circumvented by calling the original command prompt arguments (assuming its in the path). Refer to StackOverflow Q/A: https://superuser.com/questions/1185214/opening-atom-in-current-directory-in-wsl, where a function. These additions can be added to the `~/.bashrc`
@@ -164,13 +188,47 @@ C:\Program Files\nodejs
 
   # run to get all commands as global
   npm install cash-global -g
+
+  # run to get specific command
+  npm install cash-{command} -g
+
   ```
-  cash-global is stored in `node_modules` in `C:\Program Files\nodejs` (nvm symlink to nodejs version)<br>
-  therefore, manually copy all files in `node_modules\cash-global\bin folder` to nodejs root for accessibility. Run <br>
+  `cash-global` is stored in `node_modules` in `C:\Program Files\nodejs` (nvm symlink to nodejs version)<br>
   ```bash
   # Run node, or npm, or cash, to find location of global executables
-  which node
+  which node # -> C:\Users\<username>\AppData\Roaming\nvm\<version>
+
+  # File structure of modules
+  # nvm\<version>\node_modules\
+    # - cash
+    # - cash-{command}
+    # - cash-global
+    # - .bin <- this is where cash-global compiled commands live
   ```
+
+  Going into `node_modules` and running npm build `cash-global` puts all compiled commands into `.bin` in the `node_modules` folder. However, there is an error that package `vorpal` cannot be found for commands that intake arguments for processing (e.g. `touch [args]`). The main difference between the `.cmd` files from installing each command separately than with `cash-global` is the linkage to dependent modules
+  ```bash
+  # command compiled from cash-<command>
+  # file currently lives in root\node_modules\bin
+  "%_prog%"  "%dp0%\..\cash-global\bin\cat.js" %*
+
+  # command compiled from cash-global
+  # file lives in root
+  "%_prog%"  "%dp0%\node_modules\cash\bin\cash.js" %* #
+  ```
+
+  Conclusion: `cash-global` fails to build `.cmd` files, and a bit of hacking didn't help. So far, run `npm install cash-{command} -g` for individual commands. List of commands can be [found here](https://github.com/dthree/cash/wiki/Usage-%7C-Global):
+  - cat
+  - cp
+  - kill (not really needed)
+  - ls
+  - mkdir
+  - mv
+  - pwd
+  - sort (not really needed)
+  - touch
+  - rm
+
 - [Cygwin](https://www.cygwin.com/) (not recommended)
 - [MinGW32](http://www.mingw.org/)
 - [Github](https://desktop.github.com/)
