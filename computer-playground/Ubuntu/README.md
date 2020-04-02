@@ -99,3 +99,58 @@ Go to chrome and search for: `chrome://settings/?search=hardware`
 ![](https://i.stack.imgur.com/1eCDf.jpg)
 
 **NOTE:** Firefox may be faster on Linux than Chrome, vice-versa for Windows
+
+## Improving Performance
+"Top 10 Ways": https://www.petri.com/virtual_increase_vmware_performance
+
+### Install VMWare Tools
+Need to uninstall existing open-vm-tools
+
+```bash
+sudo apt-get purge --auto-remove open-vm-tools
+```
+
+Then install vmware-tools: https://docs.vmware.com/en/VMware-Workstation-Player-for-Windows/15.0/com.vmware.player.win.using.doc/GUID-08BB9465-D40A-4E16-9E15-8C016CC8166F.html
+
+```bash
+#1 - Go to VM -> install VMWare Tools
+
+#2 - Mount Disk, or it should be present on the Desktop, otherwise, type
+mount
+
+#3 - Open Terminal
+cd /tmp
+tar zxpf /[mount-location]/VMwareTools-x.x.x-yyyy.tar.gz
+
+#4 - Run the installer
+cd vmware-tools-distrib
+sudo ./vmware-install.pl
+```
+
+### Host/Guest Hacks
+- Run full screen mode
+- Dismount CDRom
+- Defragment computer: C:\, right-click 'Properties' > 'Tools Tab' > 'Defragment'
+- Disable Windows Visual Effect (not recommended)
+  Control Panel > System > Advanced Tab > Performance Settings > Adjust for best performance
+
+## Test Performance
+
+### Bash Test Scripts
+Testing performance of VM: https://askubuntu.com/questions/110744/how-do-i-measure-performance-of-a-virtual-server
+
+```bash
+wget https://github.com/kdlucas/byte-unixbench/archive/master.zip
+unzip ./master.zip
+cd ./byte-unixbench-master/UnixBench
+./Run
+```
+Anecdotal metrics
+> Which means that the VPS in question has a score of **249.7** for single task and **592.5** for parallel processing.
+> My desktop machine, while having similar or lower specs to the physical machine my VPS is running on, produced a score of **1409.7** for single task and **5156.3** for parallel processing. Exactly the kind of metric I was looking for.
+
+Ran on April 1st, 2020. First time: >**1500**; with VMWare-Tools: >**897.3**, for some reason it got slower. Could be fluctuations in the Host operating system.
+
+### Track Performance on Host
+ctrl+shift+esc (Task Manager) > Performance Tab <br>
+Can also check the number of sockets, cores, processors, virtualization, etc.
