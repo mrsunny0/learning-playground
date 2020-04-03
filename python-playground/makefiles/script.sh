@@ -1,0 +1,1 @@
+/mnt/c/windows/system32/cmd.exe \c "activate work3"

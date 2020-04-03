@@ -66,6 +66,20 @@ bcdedit /set hypervisorlaunchtype auto
 # need to restart
 ```
 
+### Sharing Folders
+Must have VMware tools installed. Watch this video on how to enable sharing: https://www.youtube.com/watch?v=K8OU6YSlhSU
+
+1. VM -> Settings (`ctrl+D`) -> Options Tab -> Enable Shared Folders
+2. Choose directory and name for shared folder
+3. Folders can be found `/mnt/hgfs/<shared folder name>`
+4. Make a symlink using
+```bash
+# has to be absolute paths to work
+ln -s /mnt/hgfs/"<shared folder name>" /home/"<username>"/"<destination>"
+```
+
+Changes on the VM or the host system will effect the shared folder. Good to interact with data on the Host side, while commanding using Linux functionality on the Guest side.
+
 <!-- ----------------------------------------------------------------------- -->
 <!-- WSL Linux Subsystem -->
 <!-- ----------------------------------------------------------------------- -->
@@ -127,10 +141,12 @@ parse_git_branch() {
 # Custom green/white/gold(git)
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
-# Custom green/blue/red(git)
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;3
-1m\] $(parse_git_branch)\[\033[00m\]\n\$ '
+# Custom green/(light)blue/red(git)
+# note that [01;XXm\] controls the color scheme for the subsequent text
+# 01 indicating bold, and XX indicating the color
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[01;31m\] $(parse_git_branch)\[\033[00m\]\n\$ '
 ```
+
 
 ### Running Window Commands
 WSL tries to convert the `$PATHS` from Windows to Unix; however, many of the commands have to be executed with `<command>.exe`, where `.exe` is required in the prompt.  
@@ -144,7 +160,6 @@ root_win="/mnt/c/Users/ge0rge" # found in wsl
 
 # Create aliases
 alias explorer=explorer.exe
-alias conda=conda.exe
 alias notepad=/mnt/c/windows/system32/notepad.exe
 alias sublime="/mnt/c/Program\ Files/Sublime\ Text\ 3/subl.exe"
 atom () {
@@ -152,7 +167,55 @@ atom () {
   # therefore ./ is appropriate to use for the current directory
   /mnt/c/Windows/System32/cmd.exe /c "atom ./$1"
 }
+# Note that git, nvm, conda should all be installed as WSL Linux binaries, rather than relying on the Win system
+# code (Visual Studio Code) is not included, as it is run on the WSL side. It's also available through the Anaconda installation
 ```
+
+### Using or Installing Anaconda (separately)
+----
+**NOTE THE BELOW CONTENTS DONT WORK** <br>
+Note specifically for Anaconda/Conda served on the Windows side. You need to run
+```bash
+# initialize conda executables to be run by bash
+conda init bash
+```
+
+Close the terminal, or start a new one, and now run `conda activate <env>`. From there you can run
+
+```bash
+# open navigator GUI
+anaconda-navigator
+
+# spyder IDE
+spyder
+```
+
+**^NOTE THE ABOVE CONTENTS DO NOT WORK**
+
+----
+
+**THESE INSTRUCTIONS WORK** <br>
+
+Although Anaconda may be installed in the Win system, reasons for installing another:
+  - Binaries are now optimized for Linux, rather than running commands in WSL and using Win
+  - Access to `make`, `grep`, `sed`, and `awk` in developing make files
+  - Rather than hacking python `PATHS` (example: `/mnt/c/Users/ge0rg/Anaconda/envs/<name>/python.exe`)
+
+Download
+1. Go to: https://www.anaconda.com/distribution/, and install the `.sh` Linux distribution. This download can go on the Win system, such as the `Downloads` folder
+2. Run WSL, go to the `Downloads` folder, which is `/mnt/c/Users/ge0rg/Downloads`, and run
+```bash
+# version number 5.2.0, in this case
+bash Anaconda3-5.2.0-Linux-x86_64.sh
+```
+3. Follow instructions, and agree to all defaults
+4. All conda to init, for this time
+5. Run
+```bash
+# this prevents conda from activating the (base) env at startup
+conda config --set auto_activate_base false
+```
+6. source or restart shell
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- Windows -->
@@ -160,7 +223,8 @@ atom () {
 ## Windows Development
 
 ### Check Build
-```cmd
+```bash
+# type cmd+r to run this command
 winver
 ```
 ![](https://support.techsmith.com/hc/article_attachments/115002725732/2017-10-11_8-39-12.png)
@@ -179,6 +243,15 @@ Location of accessible modules (-g)
 # aliased from nvm folder specific to node version in use
 C:\Program Files\nodejs
 ```
+
+### Anaconda and MAKE files
+Steps to help with setting data science projects and MAKE files <br>
+https://towardsdatascience.com/structure-and-automated-workflow-for-a-machine-learning-project-2fa30d661c1e
+
+Installing GNU make here: http://gnuwin32.sourceforge.net/packages/make.htm, with [instructions from StackOverflow](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows):
+
+After installation, add a variable to the `make.exe` location to the PATH (in this case, user path is fine)
+![](https://helpdeskgeek.com/wp-content/pictures/2012/09/environment-variables-dialog.png)
 
 ### Accessing UNIX commands (without WSL)
 - [CASH](https://github.com/dthree/cash) <br>
@@ -258,3 +331,21 @@ Control profile and UI via `profiles.json` in Settings.
     "acrylicOpacity" : 0.85
 },
 ```
+
+Change ugly background directory colors. Find a comprehensive list of changes to `LS_COLORS`: http://www.bigsoft.co.uk/blog/2008/04/11/configuring-ls_colors
+```bash
+# in ~/.bashrc
+# folders in wsl are 'Directory that is other-writable (o+w) and not sticky'
+# files in wsl are executables (?)
+# first two digits indiciate font-type: 0=normal, 01=bold
+# second two digits indiccate color, 32=green, 34=blue, 36=cyan, 94=light blue, 97=white
+LS_COLORS="ow=01;94:ex=00;94"  
+export LS_COLORS
+```
+
+Hotkeys
+- `ctrl+shift+t` = create new tab
+- `ctrl+shift+#` = create tab based on shell number (number in array in profile.json)
+- `ctrl+shift+w` = delete pane
+- `alt+shift+-` = split down (vertical)
+- `alt+shift++` = split right (horizontal)
