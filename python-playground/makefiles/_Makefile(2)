@@ -1,0 +1,96 @@
+#################################################################################
+# GLOBALS                                                                       #
+#################################################################################
+# include filenames...
+
+# BUCKET = 
+# VPATH = packages:temp
+vpath %.py packages:packages2:packages3:
+
+# SHELL = $(echo $SHELL)
+
+
+ifeq (,$(shell which conda))
+	HAS_CONDA=False
+else
+	HAS_CONDA=True
+endif
+
+SRCS := $(wildcard *.py)
+BINS := $(SRCS:%.py=%)
+
+$(echo $(BINS))
+
+
+#################################################################################
+# GOALS                                        
+#################################################################################
+# .DEFAULT_GOAL
+# all: step1 step2  #step3
+
+#################################################################################
+# Commands                                                                      #
+#################################################################################
+step1: 
+# 	@echo ${HAS_CONDA}
+# 	@echo ${shell which python}
+# 	@echo ${BINS}
+	@echo ${SHELL}
+	@python file1.py
+
+step2: 
+	@python file2.py
+
+step3:
+	@python file3.py
+
+tmp1: temp1.py temp2.py temp3.py
+	@file = $(shell echo $^ |  sed "s/ /\n/g")
+	@echo ${file}
+# 	@python ${file}
+
+test: clean
+
+docker-run: 
+	@docker build \
+		--file=./Dockerfile \
+
+
+#################################################################################
+# PROJECT RULES                                                                 #
+#################################################################################
+.PHONY: clean help lint print
+
+clean: 
+	@echo "WHA"
+	@echo $(HAS_CONDA)
+
+link:
+	flake8 --exclude=.tox
+
+help:
+	@echo "	clean-pyc"
+	@echo "		remove python artifacts."
+	@echo "	clean-build"
+	@echo "		remove build artifacts."
+	@echo "	sort"
+	@echo "		sort import statements."
+	@echo "	lint"
+	@echo "		check style with flake8."
+	@echo "	test"
+	@echo "		run py.test"
+	@echo '	run'
+	@echo '		run the `my_project` service on your local machine.'
+	@echo '	docker-run'
+	@echo '		build and run the `my_project` service in a Docker container.'
+
+print: *.py
+	@ls -p $?
+
+files := $(wildcard *.py)
+test-make: step1 step2
+	@echo $^
+	@echo $@
+	@echo $<
+	@echo ${files}
+	
