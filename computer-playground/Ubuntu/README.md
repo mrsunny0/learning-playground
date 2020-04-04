@@ -12,7 +12,7 @@ https://ubuntu.com/download/desktop
 - [x] Internet access is helpful
 
 <!-- ----------------------------------------------------------------------- -->
-<!-- Customizing WSL-->
+<!-- Customizing -->
 <!-- ----------------------------------------------------------------------- -->
 ## Customizations
 
@@ -84,6 +84,36 @@ conda deactivate
 ### Changing PATH variables
 Typically modify `~/.bashrc` to create aliases or bash scripts. More detailed explanation of how `$PATH` are made can be read here: https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
 
+### Creating a .bash_profile
+Create a separate file called ~/.bash_profile (in home folder), and place all modifications (e.g. NVM, Anaconda PATHs, PS1 and LS_COLORS changes, aliases, etc.)
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Commands and Variables -->
+<!-- ----------------------------------------------------------------------- -->
+## Commands and Variables
+
+### Variables
+- `''` single quotes escape all characters <br>
+  `""` double quotes escape all exepct for `$` expansion <br>
+  `\` alternatively, use literal escape character
+- `$` expands a variable
+- `CDPATH=:...` = customizes `cd` search tree, anything after `:` will be searched even if not in the current folder
+- `SHELL` = which shell is run
+- `BASH`
+- `TERM`
+
+### Commands
+- `echo $<NAME>` = `$` expands the variable and echoes it to screen
+- `which` = find location of executed command
+- `whereis` = find all searched paths that correspond to the command
+- `printenv` = prints all environment variables
+- `ls`
+  - `-F` adds `/` or `*` for directories or executables
+  - `l` long format
+  - `a` all content (i.e. timestamps, etc.)
+- `find`
+  - `-f` searches for files
+  - `-d` searches for directories
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- Workspace -->
