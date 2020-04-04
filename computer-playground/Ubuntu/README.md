@@ -3,7 +3,7 @@
 <!-- ----------------------------------------------------------------------- -->
 <!-- Installation -->
 <!-- ----------------------------------------------------------------------- -->
-## Downloading image
+## Downloading Image
 https://ubuntu.com/download/desktop
 - [x] 2 GHz dual core processor or better
 - [x] 4 GB system memory
@@ -147,7 +147,6 @@ sudo apt install dconf-editor
 <!-- Performance -->
 <!-- ----------------------------------------------------------------------- -->
 ## Performance
-"Top 10 Ways": https://www.petri.com/virtual_increase_vmware_performance
 
 ### Accelerating Chrome
 Go to chrome and search for: `chrome://settings/?search=hardware`
@@ -202,8 +201,8 @@ Anecdotal metrics
 > Which means that the VPS in question has a score of **249.7** for single task and **592.5** for parallel processing.
 > My desktop machine, while having similar or lower specs to the physical machine my VPS is running on, produced a score of **1409.7** for single task and **5156.3** for parallel processing. Exactly the kind of metric I was looking for.
 
-Ran on April 1st, 2020. First time: >**1500**; with VMWare-Tools: >**897.3**, for some reason it got slower. Could be fluctuations in the Host operating system.
-
-### Track Performance on Host
-`ctrl+shift+esc` (Task Manager) > Performance Tab <br>
-Can also check the number of sockets, cores, processors, virtualization, etc.
+| Date            | Single | Dual  | Comments                |
+|-----------------|--------|-------|-------------------------|
+| April 1st, 2020 |        | >1500 | Base                    |
+| April 1st, 2020 |        | 897.3 | Installed VMWare Tools  |
+| April 4th, 2020 | 690.4  | 1632  | Upgraded to Windows Pro |
