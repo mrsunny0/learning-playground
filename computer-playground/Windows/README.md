@@ -1,9 +1,32 @@
 # Computer playground - Windows
 
 <!-- ----------------------------------------------------------------------- -->
-<!-- Desktop Notes -->
+<!-- Windows Activation -->
 <!-- ----------------------------------------------------------------------- -->
-## Desktop Navigation
+## Activation
+Windows 10 Home comes with most PCs. However, Windows 10 Pro has the needed Hyper-V built in, as well as remote desktop and security features. Secondary applications such as Docker Desktop can only be installed on Pro.
+
+![](https://www.velocitymicro.com/blog/wp-content/uploads/2015/07/Windows-10-Home-vs-Pro.png)
+
+1. Go to Activation screen, `cmd+Q` "Activation". Either enter a license key or purchase one from the Micrcosoft Store.
+2. Upgrades purchased through the store do not provide a license key, the license is linked to your Windows account.
+3. If computer is modified or hardware changed (such as fresh restart), go to Activation and access Troubleshooter for it to link Windows account (which has the digital license) and PC.
+4. Activation trouble: https://www.youtube.com/watch?v=bggRczi7ojA&t=1s, or call the Microsoft customer service at 1-877-686-7786 (they will remote desktop and activate for you). <br>
+Or use Windows Default Activation codes: https://www.sysnative.com/forums/threads/using-default-generic-product-keys-to-install-windows-10.29464/ <br>
+| Operating System Edition           | Default Product Key           |
+|------------------------------------|-------------------------------|
+| Windows 10 Home                    | YTMG3-N6DKC-DKB77-7M9GH-8HVX7 |
+| **Windows 10 Pro**                 | **VK7JG-NPHTM-C97JM-9MPGT-3V66T** |
+| Windows 10 Home N                  | 4CPRK-NM3K3-X6XXQ-RXX86-WXCHW |
+| Windows 10 Home - Single Language  | BT79Q-G7N6G-PGBYW-4YWX6-6F4BT |
+| Windows 10 Home - Country Specific | 7B6NC-V3438-TRQG7-8TCCX-H6DDY |
+| Windows 10 Pro N                   | 2B87N-8KFHP-DKV6R-Y2C8J-PKCKT |
+| Windows 10 Education               | YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY |
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- General Use -->
+<!-- ----------------------------------------------------------------------- -->
+## General Use
 
 ### Window Snapping
 Stop smart aerosnapping: https://botcrawl.com/when-i-snap-a-window-show-what-i-can-snap-next-to-it-windows-10/
@@ -11,10 +34,24 @@ Stop smart aerosnapping: https://botcrawl.com/when-i-snap-a-window-show-what-i-c
 Go to `Settings > System > Multitasking`
 ![](https://botcrawl.com/wp-content/uploads/2015/07/When-I-snap-a-window-show-what-I-can-snap-next-to-it-Windows-10.png)
 
+### Check Build
+Type `cmd+r` and then run `winver`
+![](https://support.techsmith.com/hc/article_attachments/115002725732/2017-10-11_8-39-12.png)
+
+### Check System Information
+`cmd+Q` "System Information"
+![](https://tr1.cbsistatic.com/hub/i/2017/07/19/4e87f553-d66a-4fc5-8ad4-fe867620028f/fig-c-7-17.png)
+
+### Check Performance
+`ctrl+shift+esc` (Task Manager) > Performance Tab <br>
+Can also check the number of sockets, cores, processors, virtualization, etc.
+![](https://cloud.addictivetips.com/wp-content/uploads/2017/08/gpu-performance-task-manager.jpg)
+
 ### Creating Symlinks
 Using a GUI provided by https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html
 ![](https://i.stack.imgur.com/FvPez.png)
 
+Or using command prompt
 ```bash
 # Link is your made-up destination; Target is the actual location
 mklink Link Target
@@ -36,25 +73,20 @@ mklink /J Link Target
 - `cmd + shift + left/right arrows` = move window to second monitor
 - `cmd + ctrl + left/right arrows` = move to new working desktop
 
-
 <!-- ----------------------------------------------------------------------- -->
 <!-- Virtual Machines -->
 <!-- ----------------------------------------------------------------------- -->
 ## VMWare
 Linux Sub-system and VMWare need to access the same Hyper-V system, which breaks.
 Updating VMWare, or waiting for the new Linux Sub-system release will work.
-https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html (_updated March 2020_)
+https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html (_updated March 2020_). A useful blog post on the distinction between WSL, VMWare, and Hyper-V usage can be found here: https://win10.guru/vmware-workstation-tech-preview-20h1/
 
-### VMWare Tech Preview
-[Download link](https://blogs.vmware.com/workstation) to 20H1 Tech Preview:
+### Toggling Hyper-V Usage
+Hyper-V is installed on Windows Pro, or given access to via Windows Insider Program (Fast or Slow ring). WSL and other Windows native virtual machines are Type 1 Hypervisors, whereas VMWare is a Type 2. When Type 1 is in use, Type 2 cannot be run. Therefore, WSL and VMWare cannot be runned together.
 
-![](https://578202.smushcdn.com/777453/wp-content/uploads/2020/01/The-new-Tech-Preview-user-interface.png?lossy=1&strip=1&webp=1)
+![](https://i1.wp.com/win10.guru/wp-content/uploads/2020/03/Hypervisor.png?w=402&ssl=1)
 
-Note: for some reason existing or new VMs will have warning of degradation. This should be okay, continue. <br>
-![](https://www.siberportal.org/wp-content/uploads/2016/06/downloading-and-installing-vmware-workstation-and-importing-first-virtual-machine-19.jpg)
-
-### Disabling Hyper-V
-To isolated Hyper-V usage to the VM directly, thus disabling WSL.
+Access to Hyper-V must be disabled to give VM access to the Type 2 Hypervisors, this disables WSL.
 
 ```bash
 # disabling with admin priveleges
@@ -65,6 +97,19 @@ bcdedit /set hypervisorlaunchtype auto
 
 # need to restart
 ```
+
+However, this can be avoided with new updates on VMWare in its tech preview releases.
+
+### VMWare Tech Preview
+[Download link](https://blogs.vmware.com/workstation) to 20H1 Tech Preview:
+
+![](https://578202.smushcdn.com/777453/wp-content/uploads/2020/01/The-new-Tech-Preview-user-interface.png?lossy=1&strip=1&webp=1)
+
+Because VMWare is virtualizing itself without Hyper-V Type 2 access, it shows a warning.
+
+![](https://www.siberportal.org/wp-content/uploads/2016/06/downloading-and-installing-vmware-workstation-and-importing-first-virtual-machine-19.jpg)
+
+Unfortunately, this cannot be avoided (for now), but degradation is minimized with full Hyper-V support when upgrading to Windows 10 Pro.
 
 ### Sharing Folders
 Must have VMware tools installed. Watch this video on how to enable sharing: https://www.youtube.com/watch?v=K8OU6YSlhSU
@@ -79,6 +124,15 @@ ln -s /mnt/hgfs/"<shared folder name>" /home/"<username>"/"<destination>"
 ```
 
 Changes on the VM or the host system will effect the shared folder. Good to interact with data on the Host side, while commanding using Linux functionality on the Guest side.
+
+**Improving sharing speed and performance** <br>
+See StackOverflow Q/A: https://superuser.com/questions/1025864/how-to-speed-up-vmware-shared-folders
+
+Go to Settings (`ctrl+D`), and look select "Network Adaptor", and switch from NAT to Bridge. Review VMWare docs on what this means: https://www.vmware.com/support/ws45/doc/network_configure_ws.html.
+
+### Troubleshooting
+Guest freezes after sleep/hibernate when in full & dual-screen mode. To avoid this conflict, `VM -> Manage -> Change Hardware Compatibility` and upgraded to the latest available version (did the clone option). https://communities.vmware.com/thread/544330
+
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- WSL Linux Subsystem -->
@@ -119,9 +173,13 @@ bash
 
 # or
 wsl
-
-# or enter directly using the provided command prompt environment
 ```
+
+Note that because Windows is entering WSL through a terminal, the order of `source` is different. `.bash_profile` is called instead; therefore, keep all personal customizations in `.profile`, but in `.bash_profile` do:
+```bash
+source ~/.profile
+```
+To replicate the effect
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- Customizing WSL-->
@@ -147,11 +205,10 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[01;31m\] $(parse_git_branch)\[\033[00m\]\n\$ '
 ```
 
-
 ### Running Window Commands
 WSL tries to convert the `$PATHS` from Windows to Unix; however, many of the commands have to be executed with `<command>.exe`, where `.exe` is required in the prompt.  
 
-Special notes are that certain executables in the windows systems turn into .bash or .sh scripts, notably Atom. This is circumvented by calling the original command prompt arguments (assuming its in the path). Refer to StackOverflow Q/A: https://superuser.com/questions/1185214/opening-atom-in-current-directory-in-wsl, where a function. These additions can be added to the `~/.bashrc`
+Special notes are that certain executables in the windows systems turn into .bash or .sh scripts, notably Atom. This is circumvented by calling the original command prompt arguments (assuming its in the path). Refer to StackOverflow Q/A: https://superuser.com/questions/1185214/opening-atom-in-current-directory-in-wsl, where a function. These additions can be added to the `~/.profile`
 
 ```bash
 # Path variables on WSL and Win host systems
@@ -222,12 +279,19 @@ conda config --set auto_activate_base false
 <!-- ----------------------------------------------------------------------- -->
 ## Windows Development
 
-### Check Build
+### Docker Desktop
+Docker Desktop needs Hyper-V support, which is only available for Windows 10 Pro. Install here: https://hub.docker.com/editions/community/docker-ce-desktop-windows. There is a backwards compatible Docker Toolbox: https://docs.docker.com/toolbox/toolbox_install_windows/, but is not recommended to run.
+
+Activate Docker in the bakcground by clicking its icon: ![](https://d1q6f0aelx0por.cloudfront.net/icons/whale-x-win.png), and then run these scripts in the command prompt:
 ```bash
-# type cmd+r to run this command
-winver
+# check version, docker daemon must be already on
+docker version
+
+# run simple hello-world image
+docker run hello-world
 ```
-![](https://support.techsmith.com/hc/article_attachments/115002725732/2017-10-11_8-39-12.png)
+
+Running Spyder or Python scripts
 
 ### Nodejs NVM Installation
 Install nvm: https://github.com/coreybutler/nvm-windows
@@ -349,3 +413,12 @@ Hotkeys
 - `ctrl+shift+w` = delete pane
 - `alt+shift+-` = split down (vertical)
 - `alt+shift++` = split right (horizontal)
+
+### SSH and Putty
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Performance -->
+<!-- ----------------------------------------------------------------------- -->
+## Performance
+
+`cmd+Q` "storage" = "Storage settings", determine which files are stale and what applications can be uninstalled.

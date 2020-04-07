@@ -3,7 +3,7 @@
 <!-- ----------------------------------------------------------------------- -->
 <!-- Installation -->
 <!-- ----------------------------------------------------------------------- -->
-## Downloading image
+## Downloading Image
 https://ubuntu.com/download/desktop
 - [x] 2 GHz dual core processor or better
 - [x] 4 GB system memory
@@ -22,6 +22,24 @@ https://ubuntu.com/download/desktop
 sudo apt-get update
 sudo apt-get install terminator
 ```
+
+### dconf-editor
+Package providing GUI to fully customize Ubuntu layout: https://launchpad.net/ubuntu/+source/dconf-editor. <br>
+Download: [dconf-editor](https://wiki.gnome.org/Projects/dconf).
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Dev Tools -->
+<!-- ----------------------------------------------------------------------- -->
+## Dev Tools
+
+### Creating a .profile/.bash_profile
+- `.bashrc` = run when new bash shell is created
+- `.bash_profile` = run during interactive login (such as ssh), this then calls `.bashrc`
+- `.profile` = run at login, this then calls `.bashrc`
+
+More discussion on this can be found here: https://askubuntu.com/questions/121073/why-bash-profile-is-not-getting-sourced-when-opening-a-terminal.
+
+User preferences such as custom modifications (e.g. NVM, Anaconda PATHs, PS1 and LS_COLORS changes, aliases, etc.), should go into `.profile`. More detailed explanation of how `$PATH` are made can be read here: https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
 
 ### Adding git branch on command line
 Adding git branch name to command line:
@@ -81,12 +99,6 @@ conda activate env
 conda deactivate
 ```
 
-### Changing PATH variables
-Typically modify `~/.bashrc` to create aliases or bash scripts. More detailed explanation of how `$PATH` are made can be read here: https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
-
-### Creating a .bash_profile
-Create a separate file called ~/.bash_profile (in home folder), and place all modifications (e.g. NVM, Anaconda PATHs, PS1 and LS_COLORS changes, aliases, etc.)
-
 <!-- ----------------------------------------------------------------------- -->
 <!-- Commands and Variables -->
 <!-- ----------------------------------------------------------------------- -->
@@ -119,6 +131,15 @@ Create a separate file called ~/.bash_profile (in home folder), and place all mo
 <!-- Workspace -->
 <!-- ----------------------------------------------------------------------- -->
 ## Managing Workspaces
+
+### Workspace Hotkeys
+To avoid conflict of `ctrl+alt`, which exits from VMware, to move between workspaces, another hotkey binding (already inplace) is:
+- `cmd + page up/down` = move between workspaces
+- `cmd + shift + page up/down` = move window to workspace
+
+More modifications can be edited using [dconf-editor](https://wiki.gnome.org/Projects/dconf).
+
+### Display certain workspaces
 Allow sidebars to show <br>
 https://askubuntu.com/questions/966841/ubuntu-17-10-secondary-display-issue-missing-menubar-launcher-and-bar-on-top-o
 
@@ -147,7 +168,6 @@ sudo apt install dconf-editor
 <!-- Performance -->
 <!-- ----------------------------------------------------------------------- -->
 ## Performance
-"Top 10 Ways": https://www.petri.com/virtual_increase_vmware_performance
 
 ### Accelerating Chrome
 Go to chrome and search for: `chrome://settings/?search=hardware`
@@ -202,8 +222,8 @@ Anecdotal metrics
 > Which means that the VPS in question has a score of **249.7** for single task and **592.5** for parallel processing.
 > My desktop machine, while having similar or lower specs to the physical machine my VPS is running on, produced a score of **1409.7** for single task and **5156.3** for parallel processing. Exactly the kind of metric I was looking for.
 
-Ran on April 1st, 2020. First time: >**1500**; with VMWare-Tools: >**897.3**, for some reason it got slower. Could be fluctuations in the Host operating system.
-
-### Track Performance on Host
-`ctrl+shift+esc` (Task Manager) > Performance Tab <br>
-Can also check the number of sockets, cores, processors, virtualization, etc.
+| Date            | Single | Dual  | Comments                |
+|-----------------|--------|-------|-------------------------|
+| April 1st, 2020 |        | >1500 | Base                    |
+| April 1st, 2020 |        | 897.3 | Installed VMWare Tools  |
+| April 4th, 2020 | 690.4  | 1632  | Upgraded to Windows Pro |
