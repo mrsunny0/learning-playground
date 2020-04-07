@@ -130,6 +130,10 @@ See StackOverflow Q/A: https://superuser.com/questions/1025864/how-to-speed-up-v
 
 Go to Settings (`ctrl+D`), and look select "Network Adaptor", and switch from NAT to Bridge. Review VMWare docs on what this means: https://www.vmware.com/support/ws45/doc/network_configure_ws.html.
 
+### Troubleshooting
+Guest freezes after sleep/hibernate when in full & dual-screen mode. To avoid this conflict, `VM -> Manage -> Change Hardware Compatibility` and upgraded to the latest available version (did the clone option). https://communities.vmware.com/thread/544330
+
+
 <!-- ----------------------------------------------------------------------- -->
 <!-- WSL Linux Subsystem -->
 <!-- ----------------------------------------------------------------------- -->
@@ -169,9 +173,13 @@ bash
 
 # or
 wsl
-
-# or enter directly using the provided command prompt environment
 ```
+
+Note that because Windows is entering WSL through a terminal, the order of `source` is different. `.bash_profile` is called instead; therefore, keep all personal customizations in `.profile`, but in `.bash_profile` do:
+```bash
+source ~/.profile
+```
+To replicate the effect
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- Customizing WSL-->
@@ -200,7 +208,7 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 ### Running Window Commands
 WSL tries to convert the `$PATHS` from Windows to Unix; however, many of the commands have to be executed with `<command>.exe`, where `.exe` is required in the prompt.  
 
-Special notes are that certain executables in the windows systems turn into .bash or .sh scripts, notably Atom. This is circumvented by calling the original command prompt arguments (assuming its in the path). Refer to StackOverflow Q/A: https://superuser.com/questions/1185214/opening-atom-in-current-directory-in-wsl, where a function. These additions can be added to the `~/.bashrc`
+Special notes are that certain executables in the windows systems turn into .bash or .sh scripts, notably Atom. This is circumvented by calling the original command prompt arguments (assuming its in the path). Refer to StackOverflow Q/A: https://superuser.com/questions/1185214/opening-atom-in-current-directory-in-wsl, where a function. These additions can be added to the `~/.profile`
 
 ```bash
 # Path variables on WSL and Win host systems
@@ -406,7 +414,11 @@ Hotkeys
 - `alt+shift+-` = split down (vertical)
 - `alt+shift++` = split right (horizontal)
 
+### SSH and Putty
+
 <!-- ----------------------------------------------------------------------- -->
 <!-- Performance -->
 <!-- ----------------------------------------------------------------------- -->
 ## Performance
+
+`cmd+Q` "storage" = "Storage settings", determine which files are stale and what applications can be uninstalled.

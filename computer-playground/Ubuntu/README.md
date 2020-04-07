@@ -23,6 +23,24 @@ sudo apt-get update
 sudo apt-get install terminator
 ```
 
+### dconf-editor
+Package providing GUI to fully customize Ubuntu layout: https://launchpad.net/ubuntu/+source/dconf-editor. <br>
+Download: [dconf-editor](https://wiki.gnome.org/Projects/dconf).
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Dev Tools -->
+<!-- ----------------------------------------------------------------------- -->
+## Dev Tools
+
+### Creating a .profile/.bash_profile
+- `.bashrc` = run when new bash shell is created
+- `.bash_profile` = run during interactive login (such as ssh), this then calls `.bashrc`
+- `.profile` = run at login, this then calls `.bashrc`
+
+More discussion on this can be found here: https://askubuntu.com/questions/121073/why-bash-profile-is-not-getting-sourced-when-opening-a-terminal.
+
+User preferences such as custom modifications (e.g. NVM, Anaconda PATHs, PS1 and LS_COLORS changes, aliases, etc.), should go into `.profile`. More detailed explanation of how `$PATH` are made can be read here: https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
+
 ### Adding git branch on command line
 Adding git branch name to command line:
 https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt
@@ -80,12 +98,6 @@ conda activate env
 # to deactivate
 conda deactivate
 ```
-
-### Changing PATH variables
-Typically modify `~/.bashrc` to create aliases or bash scripts. More detailed explanation of how `$PATH` are made can be read here: https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu
-
-### Creating a .bash_profile
-Create a separate file called ~/.bash_profile (in home folder), and place all modifications (e.g. NVM, Anaconda PATHs, PS1 and LS_COLORS changes, aliases, etc.)
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- Commands and Variables -->
