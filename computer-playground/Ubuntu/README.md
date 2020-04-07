@@ -119,6 +119,15 @@ Create a separate file called ~/.bash_profile (in home folder), and place all mo
 <!-- Workspace -->
 <!-- ----------------------------------------------------------------------- -->
 ## Managing Workspaces
+
+### Workspace Hotkeys
+To avoid conflict of `ctrl+alt`, which exits from VMware, to move between workspaces, another hotkey binding (already inplace) is:
+- `cmd + page up/down` = move between workspaces
+- `cmd + shift + page up/down` = move window to workspace
+
+More modifications can be edited using [dconf-editor](https://wiki.gnome.org/Projects/dconf).
+
+### Display certain workspaces
 Allow sidebars to show <br>
 https://askubuntu.com/questions/966841/ubuntu-17-10-secondary-display-issue-missing-menubar-launcher-and-bar-on-top-o
 

@@ -125,6 +125,11 @@ ln -s /mnt/hgfs/"<shared folder name>" /home/"<username>"/"<destination>"
 
 Changes on the VM or the host system will effect the shared folder. Good to interact with data on the Host side, while commanding using Linux functionality on the Guest side.
 
+**Improving sharing speed and performance** <br>
+See StackOverflow Q/A: https://superuser.com/questions/1025864/how-to-speed-up-vmware-shared-folders
+
+Go to Settings (`ctrl+D`), and look select "Network Adaptor", and switch from NAT to Bridge. Review VMWare docs on what this means: https://www.vmware.com/support/ws45/doc/network_configure_ws.html.
+
 <!-- ----------------------------------------------------------------------- -->
 <!-- WSL Linux Subsystem -->
 <!-- ----------------------------------------------------------------------- -->
