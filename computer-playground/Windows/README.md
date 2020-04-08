@@ -133,7 +133,6 @@ Go to Settings (`ctrl+D`), and look select "Network Adaptor", and switch from NA
 ### Troubleshooting
 Guest freezes after sleep/hibernate when in full & dual-screen mode. To avoid this conflict, `VM -> Manage -> Change Hardware Compatibility` and upgraded to the latest available version (did the clone option). https://communities.vmware.com/thread/544330
 
-
 <!-- ----------------------------------------------------------------------- -->
 <!-- WSL Linux Subsystem -->
 <!-- ----------------------------------------------------------------------- -->
@@ -266,13 +265,26 @@ Download
 bash Anaconda3-5.2.0-Linux-x86_64.sh
 ```
 3. Follow instructions, and agree to all defaults
-4. All conda to init, for this time
+4. Allow conda to init, for this time
 5. Run
 ```bash
 # this prevents conda from activating the (base) env at startup
 conda config --set auto_activate_base false
 ```
 6. source or restart shell
+
+Manually add base env python to PATH, as there is no default python interpreter
+```bash
+# in .profile
+export PATH="/home/mrsunny/anaconda3/bin:$PATH"
+```
+
+### Adding Windows Git credentials
+Rather than making another Git SSH Key pair, use credentials from Windows (if already created)
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+```
 
 <!-- ----------------------------------------------------------------------- -->
 <!-- Windows -->
@@ -422,3 +434,10 @@ Hotkeys
 ## Performance
 
 `cmd+Q` "storage" = "Storage settings", determine which files are stale and what applications can be uninstalled.
+
+### Increasing WLS2 Network Performance
+https://medium.com/@leandrw/speeding-up-wsl-i-o-up-than-5x-fast-saving-a-lot-of-battery-life-cpu-usage-c3537dd03c74
+
+Disable
+
+Windows Security > Virus & Thread Protection > Virus & Threat Protection Settings - Manage Settings > Exclusions - Add or remove exclusions > Add an exclusion - Folder 
