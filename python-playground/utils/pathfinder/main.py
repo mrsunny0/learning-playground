@@ -1,5 +1,6 @@
 #%%
 import os
+import re
 from contextlib import contextmanager
 from collections import namedtuple
 
@@ -14,6 +15,7 @@ def change_dir(destination):
     finally:
         os.chdir(cwd)
 
+#%%
 file_structure = {}
 with change_dir("../..") as nwd:
     # create key value pair of the name and the folder path
@@ -29,6 +31,9 @@ def return_dirs(directory):
     # return both name and full path
     return sub, sub_dir
 
+def filter_name(filename):
+    return re.sub(r'[-.]', "", filename)
+
 #%%
 def generate_namedtuple_tree(d="."):
     # need to extract basename
@@ -39,7 +44,11 @@ def generate_namedtuple_tree(d="."):
 
     # get child dirs and full paths
     # note that sub is folder name only, sub_dir is full path
-    sub, sub_dir = return_dirs(d)
+    sub, sub_dir = return_dirs(root_dir)
+
+    # for namedtuple to work, need to remove special characters
+    root = filter_name(root)
+    sub = [filter_name(s) for s in sub]
 
     # recrusively search through sub_dir (full path)
     # generate child namedtuples by calling generate_namedtuple_tree 
@@ -57,5 +66,6 @@ def generate_namedtuple_tree(d="."):
         return ntuple(root_dir)
 
 #%%
-root = generate_namedtuple_tree("./test_file_tree")
-print(root)
+if __name__ == "__main__":
+    root = generate_namedtuple_tree("./test_file_tree")
+    print(root)

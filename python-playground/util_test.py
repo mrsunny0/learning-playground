@@ -1,13 +1,13 @@
-#%%
+#%% 
 import os
 
-from utils import change_dir
-from utils import file_structure
+import utils
+from utils import lambdas
+from utils import s3
+from utils.pathfinder import change_dir, generate_namedtuple_tree, root
+
+dir(utils)
+dir(utils.pathfinder)
 
 #%%
-with change_dir("imports") as nwd:
-    print(nwd)
-    print(os.listdir())
-
-#%%
-print(file_structure)
+print(root)

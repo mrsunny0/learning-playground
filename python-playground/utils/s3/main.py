@@ -1,2 +1,1 @@
-def hello_s3():
-    print("HELLO S3")
+# package wrapper for s3 functions
