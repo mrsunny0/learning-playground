@@ -279,6 +279,13 @@ Manually add base env python to PATH, as there is no default python interpreter
 export PATH="/home/mrsunny/anaconda3/bin:$PATH"
 ```
 
+### Adding Windows Git credentials
+Rather than making another Git SSH Key pair, use credentials from Windows (if already created)
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+```
+
 <!-- ----------------------------------------------------------------------- -->
 <!-- Windows -->
 <!-- ----------------------------------------------------------------------- -->
