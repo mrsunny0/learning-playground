@@ -1,5 +1,8 @@
 # Git Playground
 
+<!-- ----------------------------------------------------------------------- -->
+<!-- Downloading/Updating -->
+<!-- ----------------------------------------------------------------------- -->
 ## Downloading/updating
 Installing and upgrading git: https://confluence.atlassian.com/bitbucketserver/installing-and-upgrading-git-776640906.html
 
@@ -28,6 +31,17 @@ brew update && brew upgrade
 Download from installer: https://gitforwindows.org/ <br>
 Make sure download is at same place (by default), check using `which git`
 
+### Windows WSL
+Need to access git ppa repo for download: https://askubuntu.com/questions/1135023/how-to-install-git-on-windows-subsystem-for-linux
+```bash
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+```
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- Git Commands -->
+<!-- ----------------------------------------------------------------------- -->
 ## Git clone / pull / fetch
 
 _Documentation_
@@ -66,6 +80,9 @@ git stash pop
 # ... git add, git commit
 ```
 
+<!-- ----------------------------------------------------------------------- -->
+<!-- Tracking Changes -->
+<!-- ----------------------------------------------------------------------- -->
 ## Tracking changes
 
 ### Updating .gitignore
