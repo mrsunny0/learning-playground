@@ -152,6 +152,7 @@ _Documentation_
 
 _StackOverflow Q/A_
 - https://stackoverflow.com/questions/4114887/is-it-possible-to-do-a-sparse-checkout-without-checking-out-the-whole-repository
+- https://stackoverflow.com/questions/35925631/git-commit-push-pull-with-sparse-checkout (useful diagram)
 
 _Example_
 ```bash
@@ -165,4 +166,12 @@ git sparse-checkout init --cone
 # etc, to list sub-folders to checkout
 # they are checked out immediately after this command, no need to run git pull
 git sparse-checkout set apps/my_app libs/my_lib...
+```
+
+To check which files are sparse-checkout, or update, navigate and edit
+```bash
+.git/info/sparse-checkout
+
+# if needed, update head
+git read-tree -m -u HEAD
 ```
