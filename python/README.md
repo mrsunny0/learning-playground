@@ -142,6 +142,10 @@ https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 - `ctrl+#` = switch to numbered pane (or create it)
 - `ctrl+alt+left/right` = move current tab to another pane
 - `ctrl+tab` = move to most recent file
+- `ctrl+x` = delete a line (without copying)
+- `ctrl+d` = highlight multiple occurances of the same highlight
+- `ctrl+shift+L` = highlight all occurances of the same word
+- `ctrl+alt+up/down` = create multiple cursors (great for beginning/end of lines)
 - `ctrl+page up/down` = move to next tab in window <br>
   to change these features, check out: https://stackoverflow.com/questions/38957302/is-there-a-quick-change-tabs-function-in-visual-studio-code
 
