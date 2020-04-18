@@ -1,0 +1,2 @@
+rootProject.name='PracticeAppMedia2'
+include ':app'
