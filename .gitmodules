@@ -1,0 +1,3 @@
+[submodule "web-dev/html-css/course-materials"]
+	path = web-dev/html-css/course-materials
+	url = https://github.com/jonasschmedtmann/advanced-css-course.git
