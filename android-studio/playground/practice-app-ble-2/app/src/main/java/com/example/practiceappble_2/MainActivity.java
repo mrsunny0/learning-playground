@@ -23,6 +23,7 @@ import android.bluetooth.le.ScanSettings;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.practiceappble_2.SecondActivity;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -48,21 +51,14 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter arrayAdapter;
 
     // bluetooth
-    BluetoothAdapter bluetoothAdapter;
-    BluetoothManager bluetoothManager;
+    static BluetoothAdapter bluetoothAdapter;
+    static BluetoothManager bluetoothManager;
     BluetoothScanCallback bluetoothScanCallback;
     BluetoothLeScanner bluetoothLeScanner;
-    BluetoothGatt GATT;
-    BluetoothGattCallback gattCallBack;
-    BluetoothDevice connectedDevice;
 
     // data holder
     HashMap<String, BluetoothDevice> scanResults = new HashMap<>();
     ArrayList<BluetoothDevice> deviceList = new ArrayList<>();
-
-    // GATT constants
-    protected static final UUID notifyUUID = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,10 +101,15 @@ public class MainActivity extends AppCompatActivity {
 
                 // connect to bluetooth device
                 BluetoothDevice device = deviceList.get(position);
-                connectDevice(device);
 
                 // define connected device
-                connectedDevice = device;
+                // connectedDevice = device;
+                // send over intent
+
+                // sent to new intent
+                Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
+                intent.putExtra("device", device);
+                startActivity(intent);
             }
         });
 
@@ -157,13 +158,6 @@ public class MainActivity extends AppCompatActivity {
      * Start scan
      */
     private void startScan() {
-        // if a device is already connected
-        if (GATT != null && connectedDevice != null) {
-            // if (GATT.getConnectionState(connectedDevice) == BluetoothGatt.STATE_CONNECTED) {
-            //     disconnectDevice();
-            // }
-        }
-
         // initialize scan
         List<ScanFilter> filters = new ArrayList<>();
         ScanSettings settings = new ScanSettings.Builder()
@@ -228,96 +222,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-    }
-
-    /**
-     * Connect to device
-     */
-    private void connectDevice(BluetoothDevice device) {
-        // create gatt callback
-        gattCallBack = new BluetoothGattCallback() {
-            @Override
-            public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
-                super.onConnectionStateChange(gatt, status, newState);
-                if (status == BluetoothGatt.GATT_FAILURE) {
-                    disconnectDevice();
-                    return;
-                }
-                else if (status != BluetoothGatt.GATT_SUCCESS) {
-                    disconnectDevice();
-                    return;
-                }
-
-                if (newState == BluetoothProfile.STATE_CONNECTED) {
-                    Log.i("CONNECTION", "Discovery services");
-                    GATT.discoverServices();
-                }
-                else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
-                    disconnectDevice();
-                    return;
-                }
-            }
-
-            @Override
-            public void onServicesDiscovered(BluetoothGatt gatt, int status) {
-                super.onServicesDiscovered(gatt, status);
-                List<BluetoothGattService> services = GATT.getServices();
-                for (BluetoothGattService service : services) {
-                    Log.i("GATT", service.toString());
-                    List<BluetoothGattCharacteristic> characteristics = service.getCharacteristics();
-                    for (BluetoothGattCharacteristic characteristic : characteristics) {
-                        Log.i("GATT", "\t" + characteristic.toString());
-
-                        // enable notify callback
-                        // for now, on all characteristics
-                        GATT.setCharacteristicNotification(characteristic, true);
-                        BluetoothGattDescriptor descriptor = characteristic.getDescriptor(notifyUUID);
-                        if (descriptor != null) {
-                            descriptor.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE);
-                            GATT.writeDescriptor(descriptor);
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
-                super.onCharacteristicChanged(gatt, characteristic);
-                readCharacteristic(characteristic);
-            }
-
-            @Override
-            public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
-                super.onCharacteristicRead(gatt, characteristic, status);
-                readCharacteristic(characteristic);
-            }
-        };
-
-        // connect device
-        GATT = device.connectGatt(this, false, gattCallBack);
-    }
-
-    /**
-     * Disconnect device
-     */
-    private void disconnectDevice() {
-        GATT.disconnect();
-        GATT.close();
-    }
-
-    /**
-     * Read characteristics
-     */
-    private String readCharacteristic(BluetoothGattCharacteristic characteristic) {
-        byte[] b = characteristic.getValue();
-        String s = null;
-        try {
-            s = new String(b, "UTF-8");
-            Log.i("DATA", s);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return s;
     }
 
     /**
