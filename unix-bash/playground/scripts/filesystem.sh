@@ -10,3 +10,7 @@ echo ${FILE##*/}
 ## another example ##
 url="https://www.cyberciti.biz/files/mastering-vi-vim.pdf"
 echo "${url##*/}"
+
+echo "${url#*/}"
+
+echo ${FILE%%.*}
