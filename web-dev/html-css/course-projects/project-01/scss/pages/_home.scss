@@ -1,0 +1,30 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 25em 0;
+    margin-top: -20vh; // measure the distance from the above header
+}
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+        url(../img/nat-4.jpg);
+    background-size: cover;
+    background-position: top;
+    
+    transform: skewY(-7deg); 
+
+    // undo transform for the children which shouldn't be skewed
+    & > * {
+        transform: skewY(7deg);
+    }
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 80%,
+        0 80%
+    );
+    margin-top: -10rem;
+}
