@@ -1,4 +1,5 @@
 .btn {
+    &,
     &:link, 
     &:visited {
         text-transform: uppercase;
@@ -6,6 +7,10 @@
         padding: 1.5rem 4rem;
         display: inline-block;
         border-radius: 10rem;
+
+        // remove any bodders
+        border: none;
+        cursor: pointer;
     
         /* transition on the initial state */
         transition: all .2s;
@@ -27,11 +32,13 @@
         }
     }
     
-    &:active {
+    &:active,
+    &focus {
         transform: translateY(-1px);
         box-shadow: 0 0.2rem 1rem rgba($color-black, 0.2);
     }
     
+    // white color
     &--white {
         background-color: $color-white;
         color: $color-grey-dark;
@@ -39,7 +46,16 @@
         &::after {
             background-color: $color-white;
         }
-        
+    }
+
+    // color green
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
     }
     
     /* psuedo-element, child element */

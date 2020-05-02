@@ -13,7 +13,6 @@
 
     // attribute selector for horizontal spacing
     [class^="col-"] {
-        // background-color: orangered;
         float: left;
 
         &:not(:last-child) {
