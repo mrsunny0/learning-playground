@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0827C3B245E252F0059E0CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C3A245E252F0059E0CE /* AppDelegate.swift */; };
+		A0827C3D245E252F0059E0CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C3C245E252F0059E0CE /* SceneDelegate.swift */; };
+		A0827C3F245E252F0059E0CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C3E245E252F0059E0CE /* ViewController.swift */; };
+		A0827C42245E252F0059E0CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0827C40245E252F0059E0CE /* Main.storyboard */; };
+		A0827C44245E25330059E0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0827C43245E25330059E0CE /* Assets.xcassets */; };
+		A0827C47245E25330059E0CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0827C45245E25330059E0CE /* LaunchScreen.storyboard */; };
+		A0827C52245E35250059E0CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0827C51245E35250059E0CE /* GoogleService-Info.plist */; };
+		A0827C54245E73590059E0CE /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C53245E73590059E0CE /* TableViewController.swift */; };
+		A0827C5A245E73F80059E0CE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C59245E73F80059E0CE /* DataModel.swift */; };
+		A0827C5D245E79080059E0CE /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C5B245E79080059E0CE /* MessageCell.swift */; };
+		A0827C5E245E79080059E0CE /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0827C5C245E79080059E0CE /* MessageCell.xib */; };
+		FB2D906912A94CC1C38720FC /* Pods_App_Login_Bluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6F91217D9B2E99F1F6C224 /* Pods_App_Login_Bluetooth.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		37FD0BD9B700079EB656CAA1 /* Pods-App-Login-Bluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Login-Bluetooth.debug.xcconfig"; path = "Target Support Files/Pods-App-Login-Bluetooth/Pods-App-Login-Bluetooth.debug.xcconfig"; sourceTree = "<group>"; };
+		3AB8E2C0F10D5898241E2A57 /* Pods-App-Login-Bluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Login-Bluetooth.release.xcconfig"; path = "Target Support Files/Pods-App-Login-Bluetooth/Pods-App-Login-Bluetooth.release.xcconfig"; sourceTree = "<group>"; };
+		8F6F91217D9B2E99F1F6C224 /* Pods_App_Login_Bluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_Login_Bluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0827C37245E252F0059E0CE /* App-Login-Bluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App-Login-Bluetooth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0827C3A245E252F0059E0CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0827C3C245E252F0059E0CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A0827C3E245E252F0059E0CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A0827C41245E252F0059E0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0827C43245E25330059E0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0827C46245E25330059E0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A0827C48245E25330059E0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0827C51245E35250059E0CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0827C53245E73590059E0CE /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A0827C59245E73F80059E0CE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		A0827C5B245E79080059E0CE /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		A0827C5C245E79080059E0CE /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0827C34245E252F0059E0CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2D906912A94CC1C38720FC /* Pods_App_Login_Bluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52D476F68FC4CD04CCE337C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37FD0BD9B700079EB656CAA1 /* Pods-App-Login-Bluetooth.debug.xcconfig */,
+				3AB8E2C0F10D5898241E2A57 /* Pods-App-Login-Bluetooth.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		65A18B3E5116399D1F96F84B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F6F91217D9B2E99F1F6C224 /* Pods_App_Login_Bluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0827C2E245E252F0059E0CE = {
+			isa = PBXGroup;
+			children = (
+				A0827C39245E252F0059E0CE /* App-Login-Bluetooth */,
+				A0827C38245E252F0059E0CE /* Products */,
+				52D476F68FC4CD04CCE337C3 /* Pods */,
+				65A18B3E5116399D1F96F84B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A0827C38245E252F0059E0CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0827C37245E252F0059E0CE /* App-Login-Bluetooth.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0827C39245E252F0059E0CE /* App-Login-Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				A0827C3A245E252F0059E0CE /* AppDelegate.swift */,
+				A0827C3C245E252F0059E0CE /* SceneDelegate.swift */,
+				A0827C50245E25560059E0CE /* Model */,
+				A0827C4F245E25500059E0CE /* Controller */,
+				A0827C4E245E25480059E0CE /* View */,
+				A0827C43245E25330059E0CE /* Assets.xcassets */,
+				A0827C45245E25330059E0CE /* LaunchScreen.storyboard */,
+				A0827C51245E35250059E0CE /* GoogleService-Info.plist */,
+				A0827C48245E25330059E0CE /* Info.plist */,
+			);
+			path = "App-Login-Bluetooth";
+			sourceTree = "<group>";
+		};
+		A0827C4E245E25480059E0CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0827C40245E252F0059E0CE /* Main.storyboard */,
+				A0827C5B245E79080059E0CE /* MessageCell.swift */,
+				A0827C5C245E79080059E0CE /* MessageCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A0827C4F245E25500059E0CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0827C3E245E252F0059E0CE /* ViewController.swift */,
+				A0827C53245E73590059E0CE /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A0827C50245E25560059E0CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0827C59245E73F80059E0CE /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0827C36245E252F0059E0CE /* App-Login-Bluetooth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0827C4B245E25330059E0CE /* Build configuration list for PBXNativeTarget "App-Login-Bluetooth" */;
+			buildPhases = (
+				24E19E55DBD50723CD5403CD /* [CP] Check Pods Manifest.lock */,
+				A0827C33245E252F0059E0CE /* Sources */,
+				A0827C34245E252F0059E0CE /* Frameworks */,
+				A0827C35245E252F0059E0CE /* Resources */,
+				23B56C5DE901DA8B3E0A546C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "App-Login-Bluetooth";
+			productName = "App-Login-Bluetooth";
+			productReference = A0827C37245E252F0059E0CE /* App-Login-Bluetooth.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0827C2F245E252F0059E0CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "George Sun";
+				TargetAttributes = {
+					A0827C36245E252F0059E0CE = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = A0827C32245E252F0059E0CE /* Build configuration list for PBXProject "App-Login-Bluetooth" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0827C2E245E252F0059E0CE;
+			productRefGroup = A0827C38245E252F0059E0CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0827C36245E252F0059E0CE /* App-Login-Bluetooth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0827C35245E252F0059E0CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0827C5E245E79080059E0CE /* MessageCell.xib in Resources */,
+				A0827C47245E25330059E0CE /* LaunchScreen.storyboard in Resources */,
+				A0827C52245E35250059E0CE /* GoogleService-Info.plist in Resources */,
+				A0827C44245E25330059E0CE /* Assets.xcassets in Resources */,
+				A0827C42245E252F0059E0CE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23B56C5DE901DA8B3E0A546C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App-Login-Bluetooth/Pods-App-Login-Bluetooth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App-Login-Bluetooth/Pods-App-Login-Bluetooth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-Login-Bluetooth/Pods-App-Login-Bluetooth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24E19E55DBD50723CD5403CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-App-Login-Bluetooth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0827C33245E252F0059E0CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0827C3F245E252F0059E0CE /* ViewController.swift in Sources */,
+				A0827C3B245E252F0059E0CE /* AppDelegate.swift in Sources */,
+				A0827C3D245E252F0059E0CE /* SceneDelegate.swift in Sources */,
+				A0827C54245E73590059E0CE /* TableViewController.swift in Sources */,
+				A0827C5A245E73F80059E0CE /* DataModel.swift in Sources */,
+				A0827C5D245E79080059E0CE /* MessageCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0827C40245E252F0059E0CE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0827C41245E252F0059E0CE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A0827C45245E25330059E0CE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0827C46245E25330059E0CE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0827C49245E25330059E0CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0827C4A245E25330059E0CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0827C4C245E25330059E0CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37FD0BD9B700079EB656CAA1 /* Pods-App-Login-Bluetooth.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "App-Login-Bluetooth/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.georgelsun.App-Login-Bluetooth";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0827C4D245E25330059E0CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AB8E2C0F10D5898241E2A57 /* Pods-App-Login-Bluetooth.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "App-Login-Bluetooth/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.georgelsun.App-Login-Bluetooth";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0827C32245E252F0059E0CE /* Build configuration list for PBXProject "App-Login-Bluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0827C49245E25330059E0CE /* Debug */,
+				A0827C4A245E25330059E0CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0827C4B245E25330059E0CE /* Build configuration list for PBXNativeTarget "App-Login-Bluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0827C4C245E25330059E0CE /* Debug */,
+				A0827C4D245E25330059E0CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0827C2F245E252F0059E0CE /* Project object */;
+}

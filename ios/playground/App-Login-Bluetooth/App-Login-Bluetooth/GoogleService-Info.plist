@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>468159487434-h3ed0jq0j5t07u2m7gbo2othfpqkeqd2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.468159487434-h3ed0jq0j5t07u2m7gbo2othfpqkeqd2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCLOh2g29qqgG17Fjl6gRdHGeAff1VHe2s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>468159487434</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.georgelsun.App-Login-Bluetooth</string>
+	<key>PROJECT_ID</key>
+	<string>playground-ios-18dcd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>playground-ios-18dcd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:468159487434:ios:3023c6e9176d829adf8333</string>
+	<key>DATABASE_URL</key>
+	<string>https://playground-ios-18dcd.firebaseio.com</string>
+</dict>
+</plist>
