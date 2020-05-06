@@ -1,0 +1,56 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    padding: 3rem;
+
+    // set box-sizing rather than inherentings
+    box-sizing: border-box;
+
+    // user defaults
+    color: $color-grey-dark;
+}
+
+.heading-primary {
+    text-transform: uppercase;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 700;
+        letter-spacing: 3.5rem;
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 1.5rem;
+    }
+
+    // user defaults
+    color: $color-white;
+}
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block; 
+    letter-spacing: .2rem;
+}
+
+.heading-tertiary {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    letter-spacing: .2rem;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
