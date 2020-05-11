@@ -14,10 +14,14 @@
 		A0827C44245E25330059E0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0827C43245E25330059E0CE /* Assets.xcassets */; };
 		A0827C47245E25330059E0CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0827C45245E25330059E0CE /* LaunchScreen.storyboard */; };
 		A0827C52245E35250059E0CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0827C51245E35250059E0CE /* GoogleService-Info.plist */; };
-		A0827C54245E73590059E0CE /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C53245E73590059E0CE /* TableViewController.swift */; };
-		A0827C5A245E73F80059E0CE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C59245E73F80059E0CE /* DataModel.swift */; };
-		A0827C5D245E79080059E0CE /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C5B245E79080059E0CE /* MessageCell.swift */; };
-		A0827C5E245E79080059E0CE /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0827C5C245E79080059E0CE /* MessageCell.xib */; };
+		A0827C54245E73590059E0CE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C53245E73590059E0CE /* SearchViewController.swift */; };
+		A0827C5A245E73F80059E0CE /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C59245E73F80059E0CE /* DeviceModel.swift */; };
+		A0827C5D245E79080059E0CE /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C5B245E79080059E0CE /* DeviceCell.swift */; };
+		A0827C5E245E79080059E0CE /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0827C5C245E79080059E0CE /* DeviceCell.xib */; };
+		A0827C60245F02CA0059E0CE /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C5F245F02CA0059E0CE /* DeviceController.swift */; };
+		A0827C63245F05180059E0CE /* BluetoothDescriptorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C61245F05180059E0CE /* BluetoothDescriptorCell.swift */; };
+		A0827C64245F05180059E0CE /* BluetoothDescriptorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0827C62245F05180059E0CE /* BluetoothDescriptorCell.xib */; };
+		A0827C66245F08E80059E0CE /* DescriptorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0827C65245F08E80059E0CE /* DescriptorModel.swift */; };
 		FB2D906912A94CC1C38720FC /* Pods_App_Login_Bluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6F91217D9B2E99F1F6C224 /* Pods_App_Login_Bluetooth.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,10 +38,14 @@
 		A0827C46245E25330059E0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0827C48245E25330059E0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0827C51245E35250059E0CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A0827C53245E73590059E0CE /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		A0827C59245E73F80059E0CE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		A0827C5B245E79080059E0CE /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		A0827C5C245E79080059E0CE /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		A0827C53245E73590059E0CE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A0827C59245E73F80059E0CE /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		A0827C5B245E79080059E0CE /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		A0827C5C245E79080059E0CE /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
+		A0827C5F245F02CA0059E0CE /* DeviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceController.swift; sourceTree = "<group>"; };
+		A0827C61245F05180059E0CE /* BluetoothDescriptorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDescriptorCell.swift; sourceTree = "<group>"; };
+		A0827C62245F05180059E0CE /* BluetoothDescriptorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BluetoothDescriptorCell.xib; sourceTree = "<group>"; };
+		A0827C65245F08E80059E0CE /* DescriptorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +115,10 @@
 			isa = PBXGroup;
 			children = (
 				A0827C40245E252F0059E0CE /* Main.storyboard */,
-				A0827C5B245E79080059E0CE /* MessageCell.swift */,
-				A0827C5C245E79080059E0CE /* MessageCell.xib */,
+				A0827C61245F05180059E0CE /* BluetoothDescriptorCell.swift */,
+				A0827C62245F05180059E0CE /* BluetoothDescriptorCell.xib */,
+				A0827C5B245E79080059E0CE /* DeviceCell.swift */,
+				A0827C5C245E79080059E0CE /* DeviceCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,7 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				A0827C3E245E252F0059E0CE /* ViewController.swift */,
-				A0827C53245E73590059E0CE /* TableViewController.swift */,
+				A0827C5F245F02CA0059E0CE /* DeviceController.swift */,
+				A0827C53245E73590059E0CE /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,7 +136,8 @@
 		A0827C50245E25560059E0CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A0827C59245E73F80059E0CE /* DataModel.swift */,
+				A0827C59245E73F80059E0CE /* DeviceModel.swift */,
+				A0827C65245F08E80059E0CE /* DescriptorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,7 +202,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0827C5E245E79080059E0CE /* MessageCell.xib in Resources */,
+				A0827C5E245E79080059E0CE /* DeviceCell.xib in Resources */,
+				A0827C64245F05180059E0CE /* BluetoothDescriptorCell.xib in Resources */,
 				A0827C47245E25330059E0CE /* LaunchScreen.storyboard in Resources */,
 				A0827C52245E35250059E0CE /* GoogleService-Info.plist in Resources */,
 				A0827C44245E25330059E0CE /* Assets.xcassets in Resources */,
@@ -249,10 +262,13 @@
 			files = (
 				A0827C3F245E252F0059E0CE /* ViewController.swift in Sources */,
 				A0827C3B245E252F0059E0CE /* AppDelegate.swift in Sources */,
+				A0827C66245F08E80059E0CE /* DescriptorModel.swift in Sources */,
 				A0827C3D245E252F0059E0CE /* SceneDelegate.swift in Sources */,
-				A0827C54245E73590059E0CE /* TableViewController.swift in Sources */,
-				A0827C5A245E73F80059E0CE /* DataModel.swift in Sources */,
-				A0827C5D245E79080059E0CE /* MessageCell.swift in Sources */,
+				A0827C60245F02CA0059E0CE /* DeviceController.swift in Sources */,
+				A0827C54245E73590059E0CE /* SearchViewController.swift in Sources */,
+				A0827C63245F05180059E0CE /* BluetoothDescriptorCell.swift in Sources */,
+				A0827C5A245E73F80059E0CE /* DeviceModel.swift in Sources */,
+				A0827C5D245E79080059E0CE /* DeviceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UKD6B8266R;
 				INFOPLIST_FILE = "App-Login-Bluetooth/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -416,6 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UKD6B8266R;
 				INFOPLIST_FILE = "App-Login-Bluetooth/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

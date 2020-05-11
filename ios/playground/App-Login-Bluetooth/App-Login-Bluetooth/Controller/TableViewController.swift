@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class SearchViewController: UITableViewController {
     
     // data
     // var data: [DataModel] = []
@@ -19,6 +19,10 @@ class TableViewController: UITableViewController {
         
         // register nib
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
+        // customize tableView
+        tableView.rowHeight = 60
+        tableView.separatorStyle = .none
         
         // add some generic amount
         data.append(1)
@@ -46,14 +50,11 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create from .xib
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! DeviceCell
         
-        cell.awakeFromNib()
+        // customize
         
         // create
-        cell.label1?.text = "HELLO"
-        cell.label2?.text = "feoai"
-        cell.label3?.text = "GOIHRW"
         
         return cell
     }

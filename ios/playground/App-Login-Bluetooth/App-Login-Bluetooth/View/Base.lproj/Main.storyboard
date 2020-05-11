@@ -86,23 +86,80 @@
                         <outlet property="loginSwitch" destination="dt4-fL-MQ1" id="ev0-Td-SBb"/>
                         <outlet property="submitButton" destination="kF0-Dx-J6y" id="3aG-fJ-RWg"/>
                         <outlet property="typeLabel" destination="nB6-il-Z4i" id="sZc-5d-B30"/>
-                        <segue destination="vmr-ZG-2J5" kind="show" identifier="toTablePage" id="CR2-mS-b4W"/>
+                        <segue destination="8CI-rN-86W" kind="show" identifier="goToSearch" id="bPf-2t-HwW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071.2" y="137.18140929535232"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Device Controller-->
+        <scene sceneID="Vg1-M2-a8L">
+            <objects>
+                <viewController id="8CI-rN-86W" customClass="DeviceController" customModule="App_Login_Bluetooth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ldK-hL-QMT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JIA-nb-FUM">
+                                <rect key="frame" x="10" y="94" width="355" height="523"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VFT-xT-SM8" customClass="BluetoothDescriptorCell" customModule="App_Login_Bluetooth" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VFT-xT-SM8" id="5Ro-Z5-RjY">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JIA-nb-FUM" firstAttribute="leading" secondItem="iVL-zS-OXS" secondAttribute="leading" constant="10" id="Dbt-49-hOx"/>
+                            <constraint firstItem="iVL-zS-OXS" firstAttribute="bottom" secondItem="JIA-nb-FUM" secondAttribute="bottom" constant="50" id="OR9-H2-qbM"/>
+                            <constraint firstItem="iVL-zS-OXS" firstAttribute="trailing" secondItem="JIA-nb-FUM" secondAttribute="trailing" constant="10" id="Wy7-1H-bjC"/>
+                            <constraint firstItem="JIA-nb-FUM" firstAttribute="top" secondItem="iVL-zS-OXS" secondAttribute="top" constant="50" id="pjO-cu-aWO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iVL-zS-OXS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZKb-DL-PJG">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="stop" id="fUT-ad-kVB">
+                                <connections>
+                                    <action selector="cancelPressed:" destination="8CI-rN-86W" id="ai7-mt-zg7"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="ziV-av-res">
+                                <connections>
+                                    <action selector="addPressed:" destination="8CI-rN-86W" id="K3W-Vr-AbN"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="ziV-av-res" id="4Rc-LJ-WMr"/>
+                        <outlet property="cancelButton" destination="fUT-ad-kVB" id="wfT-te-Raa"/>
+                        <outlet property="tableView" destination="JIA-nb-FUM" id="7wr-kP-snH"/>
+                        <segue destination="vmr-ZG-2J5" kind="presentation" identifier="goToFind" id="DZZ-jp-6x1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwd-8S-ccI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1949.5999999999999" y="135.38230884557723"/>
+        </scene>
+        <!--Search View Controller-->
         <scene sceneID="IbN-wM-FuC">
             <objects>
-                <tableViewController id="vmr-ZG-2J5" customClass="TableViewController" customModule="App_Login_Bluetooth" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="vmr-ZG-2J5" customClass="SearchViewController" customModule="App_Login_Bluetooth" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WgE-F5-pKN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" id="z0O-od-wui" customClass="MessageCell" customModule="App_Login_Bluetooth" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="z0O-od-wui">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z0O-od-wui" id="Htz-tT-8lf">
@@ -137,7 +194,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moc-LN-TGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="137"/>
+            <point key="canvasLocation" x="2831" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vCQ-hc-Q6E">

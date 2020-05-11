@@ -30,6 +30,10 @@ class ViewController: UIViewController {
             inputEmail.text = email
             inputPassword.text = password
         }
+        
+        // callback for removing keyboard
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -43,7 +47,7 @@ class ViewController: UIViewController {
                         print(e)
                     } else {
                         self.setUserDefaults(email, password)
-                        self.performSegue(withIdentifier: "toTablePage", sender: self)
+                        self.performSegue(withIdentifier: "goToSearch", sender: self)
                     }
                 }
             }
@@ -54,7 +58,7 @@ class ViewController: UIViewController {
                         print(e)
                     } else {
                         self.setUserDefaults(email, password)
-                        self.performSegue(withIdentifier: "toTablePage", sender: self)
+                        self.performSegue(withIdentifier: "goToSearch", sender: self)
                     }
                 }
             }

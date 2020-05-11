@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MessageCell: UITableViewCell {
-
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var label3: UILabel!
+class DeviceCell: UITableViewCell {
+    
+    @IBOutlet weak var deviceLabel: UILabel!
+    @IBOutlet weak var UUIDLabel: UILabel!
+    @IBOutlet weak var RSSILabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
