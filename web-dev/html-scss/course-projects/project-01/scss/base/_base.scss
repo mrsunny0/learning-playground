@@ -1,0 +1,64 @@
+/* do the same for peusdo-elements */
+*, 
+*::after, 
+*::before {
+    margin: 0;
+    padding: 0;
+
+    /* make all box-sizing inhereted */
+    box-sizing: inherit;
+}
+
+/* changing root info */
+// html {
+//     /* this is the root fontsize */
+//     /* make 10 for easier math 10px = 1 rem */
+//     /* font-size: 10px; */
+
+//     /* fontsize give by the browser */
+//     /* browser-default is 16px */
+//     /* if we want 10px, we need to convert that to a percent */
+//     font-size: 62.5%; // 10px; 10px/16px = 62.5%
+
+//     // phone media query is unnecessary, since its going to inherit the tab-port
+//     // @include respond(phone) {
+//     //     font-size: 50%; 
+//     // }
+//     @include respond(tab-land) {
+//         font-size: 56.25%; // 1rem = 9px
+//     }
+//     @include respond(tab-port) {
+//         font-size: 50%; // 1rem = 8 px
+//     }
+//     @include respond(big-desktop) {
+//         font-size: 75%; // 1rem = 12px
+//     }
+// }
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+    
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
+}
+
+body { 
+    /* padding: 30px; */
+    padding: 3rem;
+
+    /* set box-sizing rather than inherenting */
+    box-sizing: border-box;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}  

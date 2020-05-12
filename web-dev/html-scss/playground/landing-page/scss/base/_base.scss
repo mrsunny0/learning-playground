@@ -1,0 +1,20 @@
+*, 
+*::after, 
+*::before {
+    margin: 0;
+    padding: 0;
+
+    /* make all box-sizing inhereted */
+    box-sizing: inherit;
+}
+
+html {
+    /* this is the root fontsize */
+    /* make 10 for easier math 10px = 1 rem */
+    /* font-size: 10px; */
+
+    /* fontsize give by the browser */
+    /* browser-default is 16px */
+    /* if we want 10px, we need to convert that to a percent */
+    font-size: 62.5%;
+}
