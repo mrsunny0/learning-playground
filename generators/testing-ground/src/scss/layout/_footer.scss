@@ -1,0 +1,102 @@
+.footer {
+    // set position for z-index
+    position: relative;
+
+    text-align: center;
+    padding: 1.5rem 4rem 4rem; 
+
+    background: $color-primary;
+    color: $color-default-text-light;
+
+    z-index: $z-footer;
+
+    &__scrollup {
+        text-decoration: none;
+        color: $color-icon-light;
+    }
+
+    &__scrollup-icon {
+        font-size: 1.4rem;
+        font-weight: bold;
+        
+        &:hover {
+            animation-name: constantUpDown;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0;
+            animation-iteration-count: infinite;
+        }
+    }
+    
+    &__header {
+        margin-bottom: 4rem;
+    }
+
+    &__header-link {
+        display: inline-block;
+        text-decoration: none;
+        transition: transform 0.2s; 
+
+        &:link,
+        &:visited {
+            color: $color-default-text-light;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        }
+        
+        &:active {
+            transform:translateY(1px);
+            box-shadow: 0 1rem 1rem rgba($color-black, 0.1);
+        }
+        
+        &--special {
+            text-decoration: underline;
+        }
+    }
+
+    &__navigation {
+        border-top: 1px solid $color-lines-light;
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    &__list {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    &__item {
+        display: inline-block;
+        &:not(:last-child) {
+            margin-right: 4rem;
+        }
+    }
+
+    &__link {
+        background-color: $color-primary;
+        &:link,
+        &:visited {
+            color: $color-default-text-light;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .2s;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-default-text-light;
+            box-shadow: 0 1rem 2rem rgba($color-black, .4);
+            transform: scale(1.3);
+        }
+    }
+
+    &__copyright {
+        border-top: 1px solid white;
+        padding-top: 2rem;
+    }
+}

@@ -1,0 +1,151 @@
+// may need to also use @-webkit-
+
+// Move in from right
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translate(10rem, 0);
+    }
+
+    80% {
+        transform: translate(-2rem, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+// Move in from left
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-10rem, 0);
+    }
+
+    80% {
+        transform: translate(2rem, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+// Move in from top
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        transform: translate(0, -10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+// Move in from bottom
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translate(0, 10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+// Move in from bottom
+@keyframes constantDownUp {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(1rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes constantUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.5rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+// Move in side to side
+@keyframes sideToSide {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(1rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sideToSide-AbsoluteMiddle-Right {
+    0% {
+        transform: translate(0, -50%);
+    }
+    50% {
+        transform: translate(1rem, -50%);
+    }
+    100% {
+        transform: translate(0, -50%);
+    }
+}
+
+@keyframes sideToSide-AbsoluteMiddle-Left {
+    0% {
+        transform: translate(0, -50%);
+    }
+    50% {
+        transform: translate(-1rem, -50%);
+    }
+    100% {
+        transform: translate(0, -50%);
+    }
+}
+
+// Image transitions  
+@keyframes fade {
+    from {
+        opacity: .4
+    } 
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes slideOffLeft {
+    from {
+        transform: translateX($image-max-width/3);
+    } 
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOffRight {
+    from {
+        transform: translateX(-$image-max-width/3);
+    } 
+    to {
+        transform: translateX(0);
+    }
+}

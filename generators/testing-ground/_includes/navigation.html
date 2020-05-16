@@ -1,0 +1,23 @@
+<div class="navigation" id="navigation"> <!-- need id for js selector -->
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+    </label>
+
+    <div class="navigation__background">&nbsp;</div>
+    
+    <nav class="navigation__nav">
+        <ul class="navigation__list">
+            {% for section in site.data.sections %}
+            <li class="navigation__item">
+                <!-- <a class="navigation__link" href="#{{ section.id }}" onclick="event.stopImmediatePropagation()" data-scroll> -->
+                <a class="navigation__link" href="#{{ section.id }}" data-scroll>
+                    {{ section.heading }} 
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    
+</div>

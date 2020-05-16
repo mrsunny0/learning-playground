@@ -1,0 +1,110 @@
+<!-- iterate per section -->
+{% for section in site.data.sections %}     <!-- no need for section data -->
+{% for group in section.group %}            <!-- iterate through group -->
+{% if group.subgroup %}                     <!-- check if there are subgroups first -->
+    {% for subgroup in group.subgroup %}    <!-- iterate through subgroups -->
+    <div class="popup" id="{{ section.id }}-{{ group.subheading }}-sub-{{ forloop.index }}">
+        <div class="popup__content">
+            <div class="popup__left">
+
+                <!-- create content based on field provided -->
+
+                <!-- url/iframe -->
+                {% if subgroup.content.url %}
+                <iframe class="popup__left--content popup__left--webview"
+                    src="{{ subgroup.content.url }}"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    width="100%"
+                    height="100%"
+                    scrolling="auto">
+                </iframe>
+                
+                <!-- video -->
+                {% elsif subgroup.content.video %}
+                <video class="popup__left--content popup__left--video" autoplay muted loop >
+                    <source src="{{ site.baseurl }}/{{ subgroup.content.video }}" type="video/mp4">
+                </video>
+
+                <!-- image -->
+                {% elsif subgroup.content.image %}
+                <img class="popup__left--content popup__left--image" src="{{ site.baseurl }}/{{ subgroup.content.image }}" alt="{{ subgroup.alt }}">
+
+                <!-- pdf -->
+                {% elsif subgroup.content.pdf %}
+                <embed class="popup__left--content popup__left--pdf" src="{{ site.baseurl }}/{{ subgroup.content.pdf }}" type="application/pdf"/>
+
+                {% endif %}
+
+            </div>
+            <div class="popup__right">
+                <h2 class="popup__right--heading heading-secondary heading-secondary--inline">{{ subgroup.subheading }}</h2>
+                <div class="popup__right--text-container">
+                    <p class="popup__right paragraph u-left-text">{{ subgroup.caption }}</p>
+                </div>
+
+                <!-- add the button if there is a link to go to -->
+                {% if subgroup.content.url %}
+                <a href="{{ subgroup.content.url }}" class="popup__right--button btn btn--primary u-center-text" target="_blank">Visit</a>
+                {% endif %}
+
+                <a href="#{{ section.id }}" class="popup__close">&times;</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="popup" id="{{ section.id }}-{{ group.subheading }}">
+        <div class="popup__content">
+            <div class="popup__left">
+
+               <!-- create content based on field provided -->
+
+                <!-- url/iframe -->
+                {% if group.content.url %}
+                <iframe class="popup__left--content popup__left--webview"
+                    src="{{ group.content.url }}"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    width="100%"
+                    height="100%"
+                    scrolling="auto">
+                </iframe>
+                
+                <!-- video -->
+                {% elsif group.content.video %}
+                <video class="popup__left--content popup__left--video" autoplay muted loop >
+                    <source src="{{ site.baseurl }}/{{ group.content.video }}" type="video/mp4">
+                </video>
+
+                <!-- image -->
+                {% elsif group.content.image %}
+                <img class="popup__left--content popup__left--image" src="{{ site.baseurl }}/{{ group.content.image }}" alt="{{ group.alt }}">
+
+                <!-- pdf -->
+                {% elsif group.content.pdf %}
+                <embed class="popup__left--content popup__left--pdf" src="{{ site.baseurl }}/{{ group.content.pdf }}" type="application/pdf"/>
+
+                {% endif %}
+
+            </div>
+            <div class="popup__right">
+                <h2 class="popup__right--heading heading-secondary heading-secondary--inline">{{ group.subheading }}</h2>
+                <div class="popup__right--text-container">
+                    <p class="popup__right paragraph u-left-text">{{ group.caption }}</p>
+                </div>
+
+                <!-- add the button if there is a link to go to -->
+                {% if group.content.url %}
+                <a href="{{ group.content.url }}" class="popup__right--button btn btn--primary u-center-text" target="_blank">Visit</a>
+                {% endif %}
+
+                <a href="#{{ section.id }}" class="popup__close">&times;</a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endfor %}
+{% endfor %}

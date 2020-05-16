@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Josefin+Slab|Antic+Slab');
+
+body {
+    line-height: 1.5;
+    color: $color-default-text;
+    
+    font-family: 'Antic Slab', serif;
+    font-weight: 400;
+}
+
+// ------------------------------------ //
+
+.banner {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.heading {
+    width: 90%;
+    margin: .5rem auto;
+    text-align: center;
+    
+    &--primary {
+        font-size: 4rem;
+        font-weight: 100;
+        text-transform: uppercase;
+    }
+
+    &--sub {
+        font-size: 2.5rem;
+    }
+}
+
+.heading-secondary {
+    font-size: 3rem;
+    font-weight: 300;
+    text-transform: capitalize;
+
+    &--inline {
+        display: inline-block;
+    }
+
+    @include respond(phone-tab) {
+        font-size: 2rem;
+    }
+
+    @include respond(phone) {
+        font-size: 1.5rem;
+    }
+}
+
+.paragraph {
+    font-size: 1.6rem;
+    text-transform: none;
+
+    &--inline {
+        display: inline-block;
+    }
+
+    &--justify {
+        text-align: justify;
+    }
+
+    @include respond(phone-tab) {
+        font-size: 1.2rem;
+    }
+
+    @include respond(phone) {
+        font-size: 0.8rem;
+    }
+}
+
+.highlight {
+    color: $color-highlight;
+}
+
+// ------------------------------------ //
+
+h1, h2, h3, h4, stong {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    line-height: 1.25;
+    color: $color-header-text;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+h4 {
+    font-size: 1rem;
+}
+sup, sub {
+    line-height: 0;
+}

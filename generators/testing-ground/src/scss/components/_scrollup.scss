@@ -1,0 +1,34 @@
+.scrollup {
+    // position
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+
+    // dimensions
+    height: $toggle-box-radius;
+    width: $toggle-box-radius;
+
+    border-radius: 50%;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__icon {
+        font-size: 1.5rem;
+        color: $color-icon-dark; 
+
+        transition: all 0.2s;
+
+        &:hover {
+            animation-name: constantUpDown;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0;
+            animation-iteration-count: infinite;
+        }
+    }
+}

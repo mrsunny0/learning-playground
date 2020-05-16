@@ -1,0 +1,47 @@
+<footer class="footer">
+
+    <a href="#section-header" class="footer__scrollup" data-scroll>
+        <span class="footer__scrollup-icon fa fa-chevron-up"></span>
+    </a>
+
+    <div class="footer__header">
+        <p class="paragraph">
+            &copy; {{ site.company_name }} - <script>new Date().getFullYear()>2010 && document.write(new Date().getFullYear());</script>
+        </p>
+        <p class="paragraph">
+            Built with 
+            <a href="https://jekyllrb.com/" class="footer__header-link" target="_blank"> 
+                Jekyll
+            </a>    
+            and
+            <a href="https://pages.github.com/" class="footer__header-link highlight" target="_blank">
+                <span class="highlight">Github-Pages</span>
+            </a>
+            and available 
+            <a class="footer__header-link footer__header-link--special" href="{{ site.gh_page }}" target="_blank">
+                here
+            </a>
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-1-of-2">
+            <div class="footer__navigation">
+                <ul class="footer__list">
+                    {% for icon in site.data.icons %}
+                    <li class="footer__item"><a class="footer__link paragraph" href="{{ icon.href }}" target="_blank">{{ icon.label }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-1-of-2">
+            <div class="footer__copyright">
+                <p class="paragraph paragraph--justify">
+                    Built by <a class="footer__link paragraph" href="{{ site.author }}" target="_blank">{{ site.author }}</a> at <a class="footer__link paragraph" href="{{ site.company_website }}" target="_blank">{{ site.company_name }}</a> and freely distributable for public use, as long as the original owner, George Sun, is credited. For example, a list of contributors that indirectly helped in making this website can be found in the template repository's <a class="footer__link paragraph" href="{{ site.template_readme }}" target="_blank">README</a>. To make a site like this, a template generator and explanation can be found in the github repository called <a class="footer__link paragraph" href="{{ site.template_generator }}" target="_blank">generator-gls-website</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
