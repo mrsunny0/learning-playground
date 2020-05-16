@@ -23,4 +23,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/dog_navigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
