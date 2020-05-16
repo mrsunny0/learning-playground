@@ -1,0 +1,57 @@
+.group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    text-align: center;
+
+    // media query
+    @include respond(phone) {
+        font-size: 4rem;
+        flex-wrap: wrap;
+    }
+
+    &__body {
+        margin: $content-margins;
+        flex: 1 1 0;
+    }
+}
+
+.group-horizontal {
+    // position
+    position: relative;
+    width: 85%;
+    margin: 4rem auto;
+
+    // alignment
+    display: flex;    
+    justify-content: space-between;
+    text-align: center;
+
+    // media query
+    @include respond(phone) {
+        font-size: 3rem;
+        flex-wrap: wrap;
+    }
+
+    @include respond(tab-land) {
+        font-size: 4rem;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        // aligment
+        display: flex;
+        // flex: 0 0 3rem;
+        flex-basis: 100000rem; // <- HACK, figure out what this means
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    &__link {
+        margin: 0;
+        text-align: left;
+        text-decoration: none;
+    }
+}

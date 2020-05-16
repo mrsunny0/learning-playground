@@ -1,0 +1,19 @@
+.section-header {
+    display: flex;
+    vertical-align: bottom;
+    height: 100vh;
+    width: 100%;
+}
+
+.section-body {
+    margin: $section-margins-topbottom $section-margins-side;
+}
+
+// for js animations, toggling on/off
+#container-grid {
+    transition: all 0.2s;
+}
+
+#container-list {
+    transition: all 0.2s;
+}

@@ -1,0 +1,164 @@
+.header-background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    z-index: $z-header-background;
+
+    &__video-container {
+        &--video {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &--background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba($color: $color-black, $alpha: .25);
+            z-index: $z-header-content-background;
+        }
+    }
+
+    &__image-container {
+        &--image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed; 
+            background-position: center;
+        }
+
+        &--background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba($color: $color-black, $alpha: .25);
+            z-index: $z-header-content-background;
+        }
+    }
+
+    &__color {
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: $z-header-content-background;
+    }
+}
+
+.banner {
+    // position
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: $z-header-banner;
+
+    // aesthetics
+    color: $color-default-text-light;
+
+    &__text {
+        width: 90%;
+        margin: .5rem auto;
+        text-align: center;
+        
+        &--title {
+            display: block;
+            padding: 1rem;
+            font-size: 7rem;
+            line-height: 1;
+            color: $color-default-text-light;
+    
+            // media query
+            @include respond(phone) {
+                margin: 0;
+                font-size: 3rem;
+                padding: 1rem;
+            }
+        }
+    
+        &--description {
+            display: block;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            color: $color-default-text-light;
+    
+            // meedia queries
+            @include respond(phone) {
+                font-size: 1.25rem;
+                margin-top: .5rem;
+                margin-bottom: .5rem;
+            }
+        }
+    }
+
+
+    &__logos {
+        margin: 3rem 0;
+        text-align: center;
+    }
+
+    &__link {
+        display: inline-block;
+        width: $icon-width;
+        height: $icon-width;
+        line-height: $icon-width;
+        font-size: $icon-width * .5;
+        margin: 0 $icon-width * .2;
+
+        text-decoration: none;
+        color: $color-icon-light;
+        border: 2px solid $color-icon-light;
+        border-radius: 50%;
+
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $color-icon-light;
+            color: $color-icon-dark;
+        }
+    }
+
+    &__scrolldown {
+        position: relative;
+        z-index: $z-header-scroll-down;
+    }
+
+    &__scrolldown-link {
+        display: inline-block;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        bottom: 2%;
+        text-decoration: none;
+    }
+
+    &__scrolldown-icon {
+        position: relative;
+        font-size: 2.8rem;
+        color: $color-icon-light;
+        &:hover {
+            animation-name: constantDownUp;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0;
+            animation-iteration-count: infinite;
+        }
+    }
+}

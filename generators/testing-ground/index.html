@@ -1,0 +1,220 @@
+---
+layout : custom
+---
+
+<!-- CONTAINER GRID -->
+<div id='container-grid'>
+
+<!-- SECTIONS -->
+{% for section in site.data.sections %}
+<section class='section-body' id="{{ section.id }}">
+    <div class='heading'>
+        <h1 class="heading--primary u-margin-top-medium">
+            {{ section.heading }}
+        </h1>
+        <p class="heading--sub">
+            {{ section.description }}
+        </p>
+    </div>
+
+    <div class='group'>
+        <!-- iterate through section groups -->
+        {% for group in section.group %}
+        <div class='group__body'>
+            <h2 class="heading-secondary u-margin-bottom-medium">{{ group.subheading }}</h2>
+
+            <!-- iterate through items (images) in a group, if exists -->
+            {% if group.subgroup %}
+            <div class="carousel">
+
+                <!-- create image with arrows -->
+                <div class="carousel__group">
+
+                    {% for subgroup in group.subgroup %}
+                    <div class="carousel__item carousel__item--image carousel__item--fade">
+                        <!-- <img class="image" src="{{ site.baseurl }}/{{ subgroup.img }}" alt="{{ subgroup.alt }}"> -->
+                        <div class="figure">
+                            <img class="figure__image" src="{{ site.baseurl }}/{{ subgroup.img }}" alt="{{ subgroup.alt }}">
+                            <p class="figure__caption">
+                                <a href="#{{ section.id }}-{{ group.subheading }}-sub-{{ forloop.index }}" class="figure__link">
+                                    Learn<br>more
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    <!-- add left and right arrows -->
+                    <div class="carousel__arrows">
+                        <a class="carousel__arrows--prev" onclick="changeSlide(this, '-1')">&#10094;</a>
+                        <a class="carousel__arrows--next" onclick="changeSlide(this, '+1')">&#10095;</a>
+                    </div>
+                </div>
+
+                <!-- create the necessary amount of dots per image -->
+                <div class="carousel__dot-container">
+                    {% for subgroup in group.subgroup %}
+                    <span class="carousel__dots" onclick="currentSlide(this, '{{ forloop.index }}')"></span>
+                    {% endfor %}
+                </div>
+
+                {% for subgroup in group.subgroup %}
+                <div class="carousel__item carousel__item--paragraph fade">
+                    <p class="paragraph">{{ subgroup.caption }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- if only one image, just show it -->
+            {% else %}
+            <div class="figure">
+                <img class="figure__image" src="{{ site.baseurl }}/{{ group.img }}" alt="{{ group.alt }}">
+                <p class="figure__caption">
+                    <a href="#{{ section.id }}-{{ group.subheading }}" class="figure__link">
+                        Learn<br>more
+                    </a>
+                </p>
+            </div>
+            
+            <!-- fake dot container to buffer space -->
+            <div class="carousel__dot-container"><span class="carousel__dots carousel__dots--hidden"></span></div>
+            <p class="paragraph">{{ group.caption }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+</div>
+
+<!-- CONTAINER LINKS -->
+<div id='container-list'>
+
+<!-- SECTIONS -->
+{% for section in site.data.sections %}
+<section class='section-body section-body--overlay' id='{{ section.id }}-overlay'>
+    <div class='heading'>
+        <h1 class="heading--primary u-margin-top-medium">
+            {{ section.heading }}
+        </h1>
+        <p class="heading--sub">
+            {{ section.description }}
+        </p>
+    </div>
+
+    {% for group in section.group %}
+    {% if group.subgroup %}
+    {% for subgroup in group.subgroup %}
+    <div class='group-horizontal'>
+        <!-- heading -->
+        <div class="group-horizontal__item">
+            <h2 class="heading-secondary heading-secondary--inline">{{ group.subheading }}</h2>
+        </div>
+
+        <!-- figure imgae -->
+        <div class="group-horizontal__item">
+            <div class="figure">
+                <img class="figure__image" src="{{ site.baseurl }}/{{ subgroup.img }}" alt="{{ subgroup.alt }}">
+                <p class="figure__caption">
+                    <a href="#{{ section.id }}-{{ group.subheading }}-sub-{{ forloop.index }}" class="figure__link">
+                        Learn<br>more
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- text -->
+        <!-- <div class="group-horizontal__item"> -->
+            <!-- <p class="paragraph paragraph--inline"> -->
+                <!-- {{ subgroup.caption }} -->
+            <!-- </p> -->
+        <!-- </div> -->
+
+        <!-- link -->
+        <div class="group-horizontal__item">
+            {% if subgroup.content.url %}
+            <a class="paragraph group-horizontal__link" href="{{ subgroup.content.url }}">
+                {{ subgroup.content.url }}
+            </a>
+            {% else %}
+            <p class="paragraph group-horizontal__link">
+                no link provided
+            </p>
+            {% endif %}
+         </div>
+
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class='group-horizontal'>
+        <!-- heading -->
+        <div class="group-horizontal__item">
+            <h2 class="heading-secondary heading-secondary--inline">{{ group.subheading }}</h2>
+        </div>
+
+        <!-- figure imgae -->
+        <div class="group-horizontal__item">
+            <div class="figure">
+                <img class="figure__image" src="{{ site.baseurl }}/{{ group.img }}" alt="{{ group.alt }}">
+                <p class="figure__caption">
+                    <a href="#{{ section.id }}-{{ group.subheading }}" class="figure__link">
+                        Learn<br>more
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- text -->
+        <!-- <div class="group-horizontal__item"> -->
+            <!-- <p class="paragraph paragraph--inline"> -->
+                <!-- {{ group.caption }} -->
+            <!-- </p> -->
+        <!-- </div> -->
+
+        <!-- link -->
+        <div class="group-horizontal__item">
+            {% if group.content.url %}
+            <a class="paragraph group-horizontal__link" href="{{ group.content.url }}">
+                {{ group.content.url }}
+            </a>
+            {% else %}
+            <p class="paragraph group-horizontal__link">
+                no link provided
+            </p>
+            {% endif %}
+         </div>
+
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+{% endfor %}
+</div>
+
+<!-- NAVIGATION BUTTONS -->
+
+<!-- toggle button -->
+<div class="toggle" id="display-toggle">
+    <input type="checkbox" class="toggle__checkbox" id="display-toggle-checkbox">
+
+    <label for="display-toggle-checkbox" class="toggle__button">
+        <div class="toggle__icon">
+            <div class="toggle__side toggle__side--front">
+                <span class="toggle__text toggle__text--icon">
+                    <i class="fas fa-th"></i>
+                </span>
+                <span class="toggle__text toggle__text--annotation">
+                    GRID VIEW
+                </span>
+            </div>
+            <div class="toggle__side toggle__side--back">
+                <span class="toggle__text toggle__text--icon">
+                    <i class="fas fa-list"></i>
+                </span>
+                <span class="toggle__text toggle__text--annotation">
+                    LINK VIEW
+                </span>
+            </div> 
+        </div>
+    </label>
+</div>

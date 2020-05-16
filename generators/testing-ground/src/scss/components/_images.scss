@@ -1,0 +1,71 @@
+.figure {
+    position: relative;
+    display: inline-block; // <- instead of block, for list images
+    height: $image-max-width;
+    width: $image-max-width;
+    margin: 0 auto;
+    
+    // clip shape
+    clip-path: circle(50% at 50% 50%); // <- perfect 50% doesn't clip sides properly
+    overflow: hidden;
+
+    &__image {
+        height: $image-max-width;
+        width: $image-max-width;
+        backface-visibility: hidden;
+        transition: all 0.5s;
+        
+        object-fit: cover;
+        transform: scale(1.1, 1.1);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        // hack to vertically align
+        margin: 0;
+        padding: 0;
+        line-height: 100%;
+
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        line-height: 2rem;
+        
+        opacity: 0;
+        transition: all .5s;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $color-link;
+    }
+
+    // animations
+    &:hover &__image {
+        // HACK DIMENSION
+        transform: scale(1, 1);
+        filter: blur(2px) brightness(90%)
+    }
+
+    &__image:hover + &__caption {
+        opacity: 1;
+        top: 50%;
+    }
+
+    // this is also needed, as the caption will go over the image,
+    // thus blocking the image hover
+    &__caption:hover { 
+        opacity: 1;
+        top: 50%;
+    }
+
+    &__image:active + &__caption {
+        transform: translate(-50%, -50%);
+        padding-top: 1rem;
+    }
+
+}

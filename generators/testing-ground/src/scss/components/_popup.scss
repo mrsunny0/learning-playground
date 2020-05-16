@@ -1,0 +1,122 @@
+.popup {
+    // position
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+
+    background-color: rgba($color-black, 0.8);
+
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+
+    &__content {
+        // position
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.3);
+        width: 60%;
+        height: 60%;
+
+        // table cell
+        display: table;
+
+        // aesthetics
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        
+        // animation
+        opacity: 0;        
+        background-color: white;
+        transition: all .5s .2s;
+    }
+
+    &__left {
+        position: relative;
+        display: table-cell;
+        width: 62.5%;
+        height: 100%;
+
+        &--content {
+            height: 100%;
+            width: 100%
+        }
+
+        &--webview {
+            overflow: hidden;
+        }
+
+        &--video {
+            position: absolute;
+            object-fit: cover;
+        }
+
+        &--image {
+            object-fit: cover;
+        }
+
+        &--pdf {
+            position: absolute;
+            object-fit: cover;
+        }
+    }
+
+    &__right {
+        display: table-cell;
+        width: 37.5%;
+        height: 100%;
+        vertical-align: top;
+        padding: 1.8rem;
+
+        text-align: center;
+
+        &--heading {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $color-lines-grey;
+        }
+
+        &--button {
+            bottom: 0rem;
+        }
+
+        &--text-container {
+            overflow-y: auto;
+            height: 70%;
+        }
+    } 
+
+    // when targeted by href
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    // close state
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-close-x;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+        }
+
+        &:hover {
+            color: $color-close-x;
+        }
+    }
+}

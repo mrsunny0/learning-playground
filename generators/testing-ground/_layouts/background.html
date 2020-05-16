@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+      {% include navigation.html %}
+      {% include header.html %}
+      <!-- hack to cover the fixed image/video -->
+      <div class="body-background">
+        {{ content }}
+        {% include footer.html %}
+      </div>
+      {% include scripts.html %}
+  </body>
+</html>

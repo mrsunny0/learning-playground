@@ -1,0 +1,83 @@
+// main body color, especially for banner
+$color-primary: #1a222c;
+$color-background: #FFF;
+$color-header-text: #333;
+$color-default-text: #555;
+$color-default-text-light: #FFF;
+$color-link: #FFF;
+$color-link-dark: #000;
+$color-nav-background: #000;
+
+// monochrome
+$color-white: #fff;
+$color-black: #000;
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-dark-1: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+// icons and typography
+$color-icon-light: #FFF;
+$color-icon-dark: #000;
+$color-arrow: #FFF;
+$color-dot-light: #bbb;
+$color-dot-dark: #717171;
+$color-close-x: #000;
+$color-lines-light: #FFF;
+$color-lines-grey: #D3D3D3;
+
+// highlight colors
+$color-highlight: #FF0000;
+
+// --------------------------------------- //
+
+// body widths
+$max-width: 1260px;
+$min-width: 768px;
+$section-margins: 4rem; 
+$section-margins-topbottom: 4rem; 
+$section-margins-side: 6rem;
+$content-margins: 4rem; // for each image group
+
+// --------------------------------------- //
+
+// z-index
+// banner
+$z-header-background: 1;
+$z-header-content-background: 0;
+$z-header-banner: 1;
+$z-header-scroll-down: 2;
+
+// background body
+$z-body-background: 2;
+
+// navigation
+$z-navigation-button: 6;
+$z-navigation-background: 4;
+$z-navigation-nav: 5;
+
+// toggle
+$z-toggle-button: 3;
+
+// footer
+$z-footer: 7;
+
+// --------------------------------------- //
+
+// grid system
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+
+// image container width
+$icon-width: 5rem;
+$image-max-width: 20rem;
+$toggle-box-radius: 4rem;
+$arrow-size: 3rem;
+
+// --------------------------------------- //
+
+// font size
+$default-font-size: 1.6rem;
