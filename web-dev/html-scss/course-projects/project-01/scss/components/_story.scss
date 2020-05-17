@@ -42,9 +42,21 @@
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
 
+        overflow: hidden;
+        border-radius: 50%;
+
+        @supports(clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0, 0)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            width: 15rem;
+            height: 15rem;
+            border-radius: none;
+        }
+
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
         }
+
     }
 
     &__img {
