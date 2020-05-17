@@ -40,6 +40,8 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // initialize view model
+        // and accses data from end API with refresh
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         viewModel.refresh()
 
@@ -49,6 +51,16 @@ class ListFragment : Fragment() {
             adapter = dogsListAdapter
         }
 
+        // when refresh is pulled down in the view xml
+        refreshLayout.setOnRefreshListener {
+            dogsList.visibility = View.GONE
+            listError.visibility = View.GONE
+            loadingView.visibility = View.VISIBLE
+            viewModel.refreshBypassCache()
+            refreshLayout.isRefreshing = false
+        }
+
+        // create observers
         obserViewModel()
     }
 
