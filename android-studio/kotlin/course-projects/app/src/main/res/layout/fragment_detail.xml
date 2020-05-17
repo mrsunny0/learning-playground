@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="dog"
+            type="com.example.dogs.model.DogBreed" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,6 +16,7 @@
 
         <ImageView
             android:id="@+id/dogImage"
+            android:imageUrl="@{dog.imageUrl}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -24,7 +31,7 @@
             android:layout_below="@id/dogImage"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp"
-            android:text="Dog name" />
+            android:text="@{dog.dogBreed}" />
 
         <TextView
             android:id="@+id/dogPurpose"
@@ -34,7 +41,7 @@
             android:layout_below="@id/dogName"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp"
-            android:text="Dog purpose" />
+            android:text="@{dog.bredFor}" />
 
         <TextView
             android:id="@+id/dogTemperament"
@@ -44,7 +51,7 @@
             android:layout_below="@id/dogPurpose"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp"
-            android:text="Dog temperament" />
+            android:text="@{dog.temperament}" />
 
         <TextView
             android:id="@+id/dogLifeSpan"
@@ -54,7 +61,7 @@
             android:layout_below="@id/dogTemperament"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp"
-            android:text="Dog life span" />
+            android:text="@{dog.lifeSpan}" />
 
     </RelativeLayout>
 </layout>
