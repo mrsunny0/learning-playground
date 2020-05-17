@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+/*
+Green: #67b26f
+Blue: #4ca2cd
+Mid: #5aaa9d
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html, */
+body {
+    color: #444;
+    font-family: Roboto;
+    background: linear-gradient(to bottom right, #67b26f, #4ca2cd);
+    padding: 100px;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pizza {
+    max-width: 800px;
+    border-radius: 4px;
+    box-shadow: 0 30px 80px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    
+    display: flex;
+    align-items: stretch;
+}
+
+.pizza__hero {
+    flex: 0 0 45%;
+}
+
+.pizza__img {
+    width: 100%;
+    display: block;
+}
+
+.pizza__content {
+    flex: 1;
+    display: flex;
+    background: white;
+}
+
+.pizza__price {
+    flex: 0 0 50px;
+    background: linear-gradient(to bottom, #67b26f, #4ca2cd);
+    writing-mode: vertical-rl;
+    color: white;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
