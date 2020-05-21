@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="vendors/css/normalize.css">
     <link rel="stylesheet" href="vendors/css/grid.css">
 
-    <!-- compiled -->
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap" rel="stylesheet">
-
+    
     <!-- ionicons -->
     <link rel="stylesheet" href="vendors/css/ionicons.min.css">
 
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+    
     <title>Document</title>
 
 </head>
@@ -319,6 +321,92 @@
             </div>
         </div>
     </section>
+
+    <section class="section-form">
+        <div class="row">
+            <h2>Sign up</h2>
+        </div>
+        <div class="row">
+            <form action="#" method="#" class="contact-form">
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="">Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="name" id="name" placeholder="Your name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="email" name="email" id="email" placeholder="Your email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="find-us">How did you find about us</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <select name="find-us" id="find-us">
+                            <option value="friends" >Friends</option>
+                            <option value="WWWW" selected>WWWW</option>
+                            <option value="Howaboutthat">Howaboutthat</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="news">Chekcbox</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="checkbox" name="news" id="news" checked> Yes, please
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="">Text area</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <textarea name="message" id="message" cols="30" rows="10"></textarea> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="">&nbsp;</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="submit" value="Send it">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="row">
+            <div class="col span-1-of-2">
+                <ul class="footer-nav">
+                    <li><a href="#">Sometseoih</a></li>
+                    <li><a href="#">Sometseoih</a></li>
+                    <li><a href="#">Sometseoih</a></li>
+                </ul>
+            </div>
+            <div class="col span-1-of-2">
+                <ul class="social-links">
+                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                    <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                    <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                Copyright &copy; Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tempora fugiat laboriosam quae beatae quas molestias ab ut explicabo reprehenderit? Quasi in dolorum dolor autem recusandae asperiores dolores quos earum.
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>
