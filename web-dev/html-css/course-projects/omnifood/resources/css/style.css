@@ -12,6 +12,10 @@
     box-sizing: border-box;
 }
 
+*:focus {
+    outline: none;
+}
+
 html {
     color: #555;
     font-family: 'Lato', 'Arial', sans-serif;
@@ -137,18 +141,19 @@ a:active {
 
 /* ----- BUTTONS ----- */
 .btn:link,
-.btn:visited {
+.btn:visited,
+input[type=submit] {
     display: inline-block;
     padding: 10px 30px;
     font-weight: 300;
     text-decoration: none;
     border-radius: 100px;
-
     transition: all 0.3s;
 }
 
 .btn-full:link,
-.btn-full:visited {
+.btn-full:visited,
+input[type=submit] {
     background-color: #e67e22;
     border: 1px solid #e67e22;
     color: #fff;
@@ -162,12 +167,16 @@ a:active {
 }
 
 .btn:hover,
-.btn:active {
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
     background-color: #cf6d17;
 }
 
 .btn-full:hover,
-.btn-full:active {
+.btn-full:active,
+input[type=submit]:hover,
+input[type=submit]:active  {
     border: 1px solid #cf6d17;
 }
 
@@ -186,6 +195,7 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .hero-text-box {
@@ -368,4 +378,188 @@ header {
     color: #e67e22;
     text-transform: lowercase;
     margin: 3px
+}
+
+/* --------------------------------------------- */
+/* TESTIMONIALS */
+/* --------------------------------------------- */
+
+.section-testimonials {
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0, 0.8)), url(../img/back-customers.jpg);
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+blockquote {
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    position: relative;
+}
+
+blockquote::before {
+    display: block;
+    content:"\201C";
+    font-size: 50px;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+cite {
+    /* display: flex; */
+    display: block;
+    align-items: center;
+    font-size: 90%;
+    margin-top: 25px;
+}
+
+cite img {
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* --------------------------------------------- */
+/* TESTIMONIALS */
+/* --------------------------------------------- */
+
+.section-plans {
+    background-color: rgba(222, 222, 222, .4);
+}
+
+.plan-box {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    margin-left: 5%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.plan-box div {
+    padding: 15px;
+}
+
+.plan-box div:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.plan-box div:first-child {
+    background-color: #efe;
+}
+
+.plan-box div:last-child {
+    text-align: center;
+    border: 0;
+}
+
+.plan-price {
+    font-size: 300%;
+    font-weight: 100;
+    margin-bottom: 10px;
+    color: #e67e22;
+}
+
+.plan-price > span {
+    font-size: 30%;
+    font-weight: 300;
+}
+
+.plan-price-meal {
+    font-size: 80%;
+}
+
+.plan-box ul {
+    list-style: none;
+}
+
+.plan-box ul li {
+    padding: 5px 0;
+}
+
+/* --------------------------------------------- */
+/* FORM */
+/* --------------------------------------------- */
+
+.section-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+/* --------------------------------------------- */
+/* FORM */
+/* --------------------------------------------- */
+
+footer {
+    background-color: #333;
+    padding: 60px;
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+}
+
+.social-links {
+    list-style: none;
+    float: right;
+}
+
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    transition: all 0.2s;
+}
+
+.footer-nav li a:active,
+.footer-nav li a:hover,
+.social-links li a:active,
+.social-links li a:hover {
+    color: #ddd;
+}
+
+.social-links li a:link,
+.scocial-links li a:visited {
+    font-size: 180%;
+}
+
+.ion-social-facebook:hover {
+    color: #3b5598;
+}
+
+footer p {
+    color: #888;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 30px;
 }
