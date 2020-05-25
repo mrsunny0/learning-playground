@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: grey;
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    justify-content: space-around;
+}
+
+.container::after {
+    content: "";
+    float: auto;
+}
+
+.item {
+    background-color: red;
+    padding: 40px;
+    margin: 30px;
+    color: white;
+    font-size: 40px;
+}
