@@ -40,6 +40,9 @@
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: 1px solid var(--line);
+
+    // global font size in detail
+    font-size: 1.4rem;
 }
 
 .description {
@@ -52,6 +55,9 @@
 }
 
 .user-reviews {
-    background-color: yellowgreen;
     flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
