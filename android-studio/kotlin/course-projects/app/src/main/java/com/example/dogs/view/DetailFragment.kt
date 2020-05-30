@@ -77,7 +77,7 @@ class DetailFragment : Fragment() {
         observeViewModel()
     }
 
-    fun observeViewModel() {
+    private fun observeViewModel() {
         // observe data changes
         viewModel.dogLiveData.observe(this, Observer { dog ->
             currentDog = dog
@@ -114,7 +114,6 @@ class DetailFragment : Fragment() {
                             dataBinding.palette = myPalette
                         }
                 }
-
             })
     }
 
@@ -133,7 +132,13 @@ class DetailFragment : Fragment() {
                 (activity as MainActivity).checkSmsPermission()
             }
             R.id.action_share -> {
-
+                // let an external application (like Gmail) consume the data from this intent/data
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain" // type of method in which intent is consumed by 3rd party application
+                intent.putExtra(Intent.EXTRA_SUBJECT, "HELLO")
+                intent.putExtra(Intent.EXTRA_TEXT, "SOME TEXT")
+                intent.putExtra(Intent.EXTRA_STREAM, currentDog?.imageUrl)
+                startActivity(Intent.createChooser(intent, "Share with"))
             }
         }
         return super.onOptionsItemSelected(item)
@@ -145,7 +150,7 @@ class DetailFragment : Fragment() {
                 val smsInfo = SmsInfo(
                     "",
                     "${currentDog?.dogBreed} bred for ${currentDog?.bredFor}",
-                    currentDog?.imageUrl ?: ""
+                    currentDog?.imageUrl
                 )
                 val dialogBinding = DataBindingUtil.inflate<SendSmsDialogBinding>(
                     LayoutInflater.from(it),
