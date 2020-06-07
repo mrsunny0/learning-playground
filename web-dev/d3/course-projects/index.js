@@ -80,7 +80,7 @@ const update = (data) => {
  * Plot
  *******************************/
 
- var data = []
+var data = []
 
 db.collection("dishes").onSnapshot( res => {
 
@@ -113,17 +113,28 @@ db.collection("dishes").onSnapshot( res => {
 })
 
 
-// .get().then(res => {
-    // // get data
-    // var data = res.docs.map(d => {
-    //     return d.data()
-    // })
+/*
+db.collection.get().then(res => {
+    // get data
+    var data = res.docs.map(d => {
+        return d.data()
+    })
     
-    // update(data)
+    update(data)
 
-    // d3.interval(() => {
-    //     data.pop()
-    //     update(data)
-    // }, 3000)
+    d3.interval(() => {
+        data.pop()
+        update(data)
+    }, 3000)
 
-// })
+})
+*/
+
+/**
+ * Transitions
+ * - original y = graphHeight
+ * - height = 0
+ * 
+ * - final y = y(d)
+ * - final height = graphHeight - y(d)
+ */
