@@ -47,6 +47,9 @@ xAxisGroup.selectAll("text")
 /*******************************
  * Update
  *******************************/
+
+const t = d3.transition().duration(500)
+
 const update = (data) => {
     // 1. update scales
     x.domain(data.map(d => d.name))
@@ -60,16 +63,29 @@ const update = (data) => {
 
     // 4. update current shapes in the dom
     rects.attr("x", d => x(d.name))
-        .attr("y", d => y(d.orders))
         .attr("width", x.bandwidth)
-        .attr("height", d => graphHeight - y(d.orders))
+        // .transition(t)
+        //     .attr("y", d => y(d.orders))
+        //     .attr("height", d => graphHeight - y(d.orders))
 
     // 5. append the enter selection to the dom
     rects.enter().append("rect")
         .attr("x", d => x(d.name))
-        .attr("y", d => y(d.orders))
         .attr("width", x.bandwidth)
-        .attr("height", d => graphHeight - y(d.orders))
+
+        // starting conditions
+        .attr("y", graphHeight)
+        .attr("height", 0)
+
+        // merge with existing rects
+        .merge(rects)
+
+        // duration
+        .transition(t) // these will apply to the merged selections
+        
+        // ending conditions
+            .attr("y", d => y(d.orders))
+            .attr("height", d => graphHeight - y(d.orders))
 
     // 6. customization
     xAxisGroup.call(xAxis)
