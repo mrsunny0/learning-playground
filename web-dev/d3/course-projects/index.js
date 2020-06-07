@@ -48,7 +48,7 @@ xAxisGroup.selectAll("text")
  * Update
  *******************************/
 
-const t = d3.transition().duration(500)
+const t = d3.transition().duration(1500)
 
 const update = (data) => {
     // 1. update scales
@@ -64,21 +64,22 @@ const update = (data) => {
     // 4. update current shapes in the dom
     rects.attr("x", d => x(d.name))
         .attr("width", x.bandwidth)
-        // .transition(t)
-        //     .attr("y", d => y(d.orders))
-        //     .attr("height", d => graphHeight - y(d.orders))
+        .transition(t)
+            .attr("y", d => y(d.orders))
+            .attr("height", d => graphHeight - y(d.orders))
 
     // 5. append the enter selection to the dom
     rects.enter().append("rect")
         .attr("x", d => x(d.name))
-        .attr("width", x.bandwidth)
+        // .attr("width", x.bandwidth)
+        .attr("width", 0)
 
         // starting conditions
         .attr("y", graphHeight)
         .attr("height", 0)
 
         // merge with existing rects
-        .merge(rects)
+        // .merge(rects)
 
         // duration
         .transition(t) // these will apply to the merged selections
@@ -86,6 +87,9 @@ const update = (data) => {
         // ending conditions
             .attr("y", d => y(d.orders))
             .attr("height", d => graphHeight - y(d.orders))
+        
+        // apply tween
+            .attrTween("width", widthTween)
 
     // 6. customization
     xAxisGroup.call(xAxis)
@@ -127,6 +131,24 @@ db.collection("dishes").onSnapshot( res => {
 
     update(data)
 })
+
+/*******************************
+ * Tween
+ *******************************/
+
+ const widthTween = (d) => {
+
+    // define interpolation
+    let i = d3.interpolate(0, x.bandwidth())
+
+    // return a function which takes in a time ticker
+    return function(t) {
+
+        // returns values between interpolation ends
+        return i(t)
+    }
+
+ }
 
 
 /*
