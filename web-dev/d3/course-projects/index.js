@@ -1,57 +1,50 @@
-const svg = d3.select(".canvas")
-    .append("svg")
-    .attr("width", 600)
+const svg = d3.select(".canvas").append("svg")
     .attr("height", 600)
+    .attr("width", 600)
 
-// create margins and dimensions
 const margin = {
-    top: 20, 
+    top: 20,
     right: 20,
-    bottom: 100, // room for axis
-    left: 100 // room for axis
+    bottom: 100,
+    left: 100
 }
 
-// create dimensions of the graph using the margin information
 const graphWidth = 600 - margin.left - margin.right
 const graphHeight = 600 - margin.top - margin.bottom
 
 const graph = svg.append("g")
     .attr("width", graphWidth)
-    .attr("height", graphHeight)
-    .attr("transform", `translate(${margin.left}, ${margin.top})`)
-    .style("background-color", "red")
+    .attr("height", graphWidth)
+    .attr("transform" ,`translate(${margin.left}, ${margin.top})`)
 
-// generate axis group
 const xAxisGroup = graph.append("g")
-    .attr("transform", `translate(0, ${graphHeight})`) // need to shift down axis to bottom
+    .attr("transform", `translate(0, ${graphHeight})`)
 const yAxisGroup = graph.append("g")
 
-d3.json("./menu.json").then(data => {
+db.collection("dishes").get().then(res => {
+    // get data
+    var data = res.docs.map(d => {
+        return d.data()
+    })
 
-    const min = d3.min(data, d => d.orders)
-    const max = d3.max(data, d => d.orders)
-    const extent = d3.extent(data, d => d.orders)
-
-    // scale
-    const y = d3.scaleLinear() 
-        .domain([0, max])
-        .range([graphHeight, 0])
-
+    // create domain range
     const x = d3.scaleBand()
-        .domain(data.map(d => {
-            return d.name
-        }))
+        .domain(data.map(d => d.name))
         .range([0, 300])
         .paddingInner(0.2)
         .paddingOuter(0.2)
+    const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.orders)])
+        .range([graphHeight, 0])
 
+    // bind data
     graph.selectAll("rect")
         .data(data)
         .enter()
         .append("rect")
-        .attr("x", (d, i) => x(d.name))
-        .attr("width", x.bandwidth)
+        .attr("x", d => x(d.name))
         .attr("y", d => y(d.orders))
+        .attr("width", x.bandwidth)
         .attr("height", d => graphHeight - y(d.orders))
 
     // create axis
@@ -59,13 +52,11 @@ d3.json("./menu.json").then(data => {
     const yAxis = d3.axisLeft(y)
         .ticks(3)
         .tickFormat(d => d + " orders")
-
     xAxisGroup.call(xAxis)
     yAxisGroup.call(yAxis)
 
+    // customize
     xAxisGroup.selectAll("text")
-        .attr("transform", `rotate(-40)`)
-        .attr("text-anchor", "end")
-        .attr("fill", "orange")
-
+        .attr("transform", "rotate(-40)")
+        .attr("text-anchor", "end")    
 })
