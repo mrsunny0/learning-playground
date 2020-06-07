@@ -79,12 +79,51 @@ const update = (data) => {
 /*******************************
  * Plot
  *******************************/
-db.collection("dishes").get().then(res => {
-    // get data
-    var data = res.docs.map(d => {
-        return d.data()
+
+ var data = []
+
+db.collection("dishes").onSnapshot( res => {
+
+    // get all elements 
+    res.docChanges().forEach(change => {
+        const doc = {...change.doc.data(), id: change.doc.id}
+
+        console.log(doc.id)
+        
+        // what type of data
+        switch (change.type) {
+            case "added":
+                data.push(doc)
+                break   
+            case "modified":
+                const index = data.findIndex(item => item.id == doc.id)
+                data[index] = doc
+                break
+            case "removed":
+                console.log("REMOVED")
+                data = data.filter(item => item.id !== doc.id)
+                console.log(data)
+                break
+            default:
+                break
+        }
     })
 
-    // update data
     update(data)
 })
+
+
+// .get().then(res => {
+    // // get data
+    // var data = res.docs.map(d => {
+    //     return d.data()
+    // })
+    
+    // update(data)
+
+    // d3.interval(() => {
+    //     data.pop()
+    //     update(data)
+    // }, 3000)
+
+// })
