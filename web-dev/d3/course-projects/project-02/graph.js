@@ -39,9 +39,18 @@ const path = graph.append("path")
 
 const xpath = graph.append("path")
     .attr("class", "xpath")
+    .attr("fill", "none")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))
 
 const ypath = graph.append("path")
     .attr("class", "ypath")
+    .attr("class", "xpath")
+    .attr("fill", "none")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))
 
 /**
  * Update function
@@ -103,18 +112,19 @@ const update = (data) => {
             }
 
             xpath.data([[xorigin, d]])
-                .attr("fill", "none")
-                .attr("stroke", "#fff")
-                .attr("stroke-width", 1)
                 .attr("d", d => line(d))
-                .style("stroke-dasharray", ("3, 3"))
+                .attr("opacity", 1)
+                
+            // alternatively, code the path object yourself
+            // xpath
+            //     .attr("x1", x(new Date(d.date)))
+            //     .attr("x2", x(new Date(d.date)))
+            //     .attr("y1", graphHeight)
+            //     .attr("y2", y(d.distance))
 
             ypath.data([[yorigin, d]])
-                .attr("fill", "none")
-                .attr("stroke", "#fff")
-                .attr("stroke-width", 1)
                 .attr("d", d => line(d))
-                .style("stroke-dasharray", ("3, 3"))
+                .attr("opacity", 1)
 
         })
         .on("mouseout", (d, i, n) => {
@@ -123,8 +133,8 @@ const update = (data) => {
                 .attr("r", 4)
                 .attr("fill", "#ccc")
 
-            xpath.data([]).exit().remove()
-            ypath.data([]).exit().remove()
+            xpath.attr("opacity", 0)
+            ypath.attr("opacity", 0)
         })
         
     // call axis
