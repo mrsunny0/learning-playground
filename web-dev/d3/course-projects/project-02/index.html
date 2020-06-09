@@ -33,13 +33,34 @@
             </div>
         </div>
         <div class="row">
-            <form class="col m6 push-m3">
+            <form class="col m8 push-m2">
                 <p class="flow-text grey-text center">How much <span>cycling</span> have you done today?</p>
                 <input type="text" class="grey-text" id="cycling" placeholder="Distance in m"/>
                 <p class="center pink-text error text-lighten-1"></p>
             </form>
         </div>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBD9RASRRCtjjK2bn93WhGGwgl6SBblhl0",
+        authDomain: "d3-example-86934.firebaseapp.com",
+        databaseURL: "https://d3-example-86934.firebaseio.com",
+        projectId: "d3-example-86934",
+        storageBucket: "d3-example-86934.appspot.com",
+        messagingSenderId: "753152078293",
+        appId: "1:753152078293:web:bb59b747773c8ac6f80d5c"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore()
+    </script>
 
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="index.js"></script>
