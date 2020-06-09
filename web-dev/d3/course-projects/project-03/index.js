@@ -43,6 +43,9 @@ const pack = d3.pack()
 
 const bubbleData = pack(rootNode).descendants()
 
+// create ordinal scale
+const color = d3.scaleOrdinal(d3["schemeSet3"])
+
 // join data and add groups
 // this creates an array of nodes generated in the DOM
 const nodes = graph.selectAll("g")
@@ -55,7 +58,7 @@ nodes.append("circle")
     .attr("r", d => d.r)
     .attr("stroke", "white")
     .attr("stroke-width", 2)
-    .attr("fill", "purple")
+    .attr("fill", d => color(d.depth))
 
 nodes.filter(d => !d.children)
     .append("text")
