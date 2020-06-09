@@ -37,6 +37,12 @@ const line = d3.line()
 // initialize line path element
 const path = graph.append("path")
 
+const xpath = graph.append("path")
+    .attr("class", "xpath")
+
+const ypath = graph.append("path")
+    .attr("class", "ypath")
+
 /**
  * Update function
  */
@@ -86,12 +92,39 @@ const update = (data) => {
                 .transition().duration(250)
                 .attr("r", 10)
                 .attr("fill", "#fff")
+
+            const xorigin = {
+                date: data[0].date,
+                distance: d.distance
+            } 
+            const yorigin = {
+                date: d.date,
+                distance: 0
+            }
+
+            xpath.data([[xorigin, d]])
+                .attr("fill", "none")
+                .attr("stroke", "#fff")
+                .attr("stroke-width", 1)
+                .attr("d", d => line(d))
+                .style("stroke-dasharray", ("3, 3"))
+
+            ypath.data([[yorigin, d]])
+                .attr("fill", "none")
+                .attr("stroke", "#fff")
+                .attr("stroke-width", 1)
+                .attr("d", d => line(d))
+                .style("stroke-dasharray", ("3, 3"))
+
         })
         .on("mouseout", (d, i, n) => {
             d3.select(n[i])
                 .transition().duration(250)
                 .attr("r", 4)
                 .attr("fill", "#ccc")
+
+            xpath.data([]).exit().remove()
+            ypath.data([]).exit().remove()
         })
         
     // call axis
