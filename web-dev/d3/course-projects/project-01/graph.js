@@ -44,6 +44,20 @@ const legend = d3.legendColor()
     .scale(color) // same color scale as pie chart
 
 /**
+ * Tool tip
+ */
+const tip = d3.tip()
+    .attr("class", 'tip card')
+    .html(d => {
+        let content = `<div class="name">${d.data.name}</div>`
+        content += `<div class="cost">${d.data.cost}</div>`
+        content += `<div class="delete">Click slice to delete</div>`
+        return content
+    })
+
+graph.call(tip)
+
+/**
  * D3 update logic
  */
 const update = (data) => {
@@ -88,6 +102,18 @@ const update = (data) => {
             
             .transition().duration(750)
                 .attrTween("d", arcTweenEnter)
+
+    // add event listeners
+    graph.selectAll("path")
+        .on("mouseover", (d, i, n) => {
+            handleMouseOver(d, i, n)
+            tip.show(d, n[i]) // last argument is this, but can access with n[i]
+        })
+        .on("mouseout", (d, i, n) => {
+            handleMouseOut(d, i, n)
+            tip.hide()
+        })
+        .on("click", handleClick)
 }
 
 /**
@@ -159,3 +185,27 @@ function arcTweenUpdate(d) {
         return arcPath(i(t))
     }
 } 
+
+/**
+ * Event handler
+ */
+// d, i, n n being the original selection in the callback
+// you can also name the transition, prevents transitions from interferring 
+const handleMouseOver = (d, i, n) => {
+    d3.select(n[i])
+        .transition("changeSliceFill").duration(300)
+        .attr("fill", "white")
+}
+
+const handleMouseOut = (d, i, n) => {
+    d3.select(n[i])
+        .transition("changeSliceFill").duration(300)
+        .attr("fill", color(d.data.name))
+}
+
+const handleClick = (d, i, n) => {
+    const id = d.data.id // firebase generated id
+    db.collection("expenses").doc(id).delete().then(() => {
+        console.log("deleted")
+    })
+}

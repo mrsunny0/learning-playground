@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>The Dojo</title>
+</head>
+<body class="grey darken-4">
+    <div class="nav z-depth-0">
+        <div class="section center">
+            <h3 class="white-text center">- the header -</h3>
+            
+        </div>
+    </div>
+
+    <div class="section center">
+        <p class="grey-text flow-text">Fitness tracker</p>
+    </div>
+
+    <div class="container section">
+        <div class="row">
+            <div class="col s12 l5">
+                <button class="active" data-activity="cycling">Cycling</button>  
+                <button data-activity="running">Running</button>  
+                <button data-activity="swimming">Swimming</button>  
+                <button data-activity="walking">Walking</button>  
+            </div>
+            <div class="col s12 l6 push-l1">
+                <div class="canvas"></div>
+            </div>
+        </div>
+        <div class="row">
+            <form class="col m8 push-m2">
+                <p class="flow-text grey-text center">How much <span>cycling</span> have you done today?</p>
+                <input type="text" class="grey-text" id="cycling" placeholder="Distance in m"/>
+                <p class="center pink-text error text-lighten-1"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBD9RASRRCtjjK2bn93WhGGwgl6SBblhl0",
+        authDomain: "d3-example-86934.firebaseapp.com",
+        databaseURL: "https://d3-example-86934.firebaseio.com",
+        projectId: "d3-example-86934",
+        storageBucket: "d3-example-86934.appspot.com",
+        messagingSenderId: "753152078293",
+        appId: "1:753152078293:web:bb59b747773c8ac6f80d5c"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore()
+    </script>
+
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="index.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>
