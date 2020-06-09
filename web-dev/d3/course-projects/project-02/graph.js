@@ -28,18 +28,36 @@ const yAxisGroup = graph.append("g")
     .attr("class", "y-axis")
 
 /**
+ * Line path generator
+ */
+const line = d3.line()
+    .x(function(d) { return x(new Date(d.date)) })
+    .y(function(d) { return y(d.distance) })
+
+// initialize line path element
+const path = graph.append("path")
+
+/**
  * Update function
  */
 const update = (data) => {
 
     // filter data based on front-end activity
-    data = data.filter(item => {
-        return item.activity == activity
-    })
+    data = data.filter(item => { return item.activity == activity })
+
+    // sort data based on date object
+    data.sort( (a, b) => new Date(a.date) - new Date(b.date))
 
     // set up domains
     x.domain(d3.extent(data, d => new Date(d.date))) // time series, get min and max from given dates
     y.domain([0, d3.max(data, d => d.distance)]) // fixed min at 0
+
+    // update path data
+    path.data([data]) // important, line needs to be an array of array data
+        .attr("fill", "none")
+        .attr("stroke", "#00bfa5")
+        .attr("stroke-width", 2)
+        .attr("d", d => line(d))
 
     // select circles
     const circles = graph.selectAll("circle")
@@ -60,6 +78,21 @@ const update = (data) => {
             .attr("cx", d => x(new Date(d.date)))
             .attr("cy", d => y(d.distance))
             .attr("fill", "#ccc")
+
+    // add interactivity
+    graph.selectAll("circle")
+        .on("mouseover", (d, i, n) => {
+            d3.select(n[i])
+                .transition().duration(250)
+                .attr("r", 10)
+                .attr("fill", "#fff")
+        })
+        .on("mouseout", (d, i, n) => {
+            d3.select(n[i])
+                .transition().duration(250)
+                .attr("r", 4)
+                .attr("fill", "#ccc")
+        })
         
     // call axis
     const xAxis = d3.axisBottom(x)
