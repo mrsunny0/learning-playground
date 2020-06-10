@@ -67,8 +67,17 @@ const update = (data) => {
     x.domain(d3.extent(data, d => new Date(d.date))) // time series, get min and max from given dates
     y.domain([0, d3.max(data, d => d.distance)]) // fixed min at 0
 
+    // const secondLine = data.map(d => { return {
+    //     date: d.date,
+    //     distance: 100,
+    // }})
+
+    // console.log(data)
+    // console.log(secondLine)
+
     // update path data
     path.data([data]) // important, line needs to be an array of array data
+        // .transition().duration(400)
         .attr("fill", "none")
         .attr("stroke", "#00bfa5")
         .attr("stroke-width", 2)
