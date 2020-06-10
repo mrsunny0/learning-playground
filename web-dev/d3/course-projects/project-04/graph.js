@@ -23,9 +23,18 @@ const tree = d3.tree()
     .size([dims.width, dims.height])
 
 /**
+ * Create ordinal color scale
+ */
+const color = d3.scaleOrdinal(d3.schemeCategory10)
+
+/**
  * Update function
  */
 const update = (data) => {
+
+    // refresh - remove current nodes
+    graph.selectAll(".node").remove()
+    graph.selectAll(".link").remove()
 
     // transform data
     const rootNode = stratify(data) 
@@ -40,6 +49,9 @@ const update = (data) => {
     // get links and join data
     const links = graph.selectAll(".link")
         .data(treeData.links()) 
+
+    // set color domain
+    color.domain(data.map(d => d.department))
 
     // enter new links
     links.enter()
@@ -65,6 +77,11 @@ const update = (data) => {
         .attr("stroke-wdith", 2)
         .attr("height", 50)
         .attr("width", d => d.data.name.length * 20)
+        .attr("transform", d => {
+            const x = d.data.name.length * 20
+            return `translate(${-x / 2}, -30)`
+        })
+        .attr("fill", d =>  color(d.data.department))
 
     // append name text
     enterNodes.append("text")
