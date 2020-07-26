@@ -1,0 +1,33 @@
+SECTIONS {
+ .text    :
+ { 
+   *(.init0) 
+   KEEP (*(.init0)) 
+   *(.text) 
+    *(.text.*)
+   *(.fini0) 
+   KEEP (*(.fini0))  
+ }
+
+ .data    : 
+ { 
+   PROVIDE (__data_start = .); 
+   *(.data);
+    *(.data*);
+   *(.rodata);
+    *(.rodata*);
+   PROVIDE (__data_end = .); 
+ }
+
+ .bss     : 
+ { 
+   PROVIDE (__bss_start = .); 
+   *(.bss); 
+   PROVIDE (__bss_end = .);
+ }
+
+ __data_load_start = LOADADDR(.data);
+ __data_load_end = __data_load_start + SIZEOF(.data);
+}
+
+
