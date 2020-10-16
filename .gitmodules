@@ -1,0 +1,3 @@
+[submodule "atmel-studio/xLoader"]
+	path = atmel-studio/xLoader
+	url = https://github.com/binaryupdates/xLoader.git
