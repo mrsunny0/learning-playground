@@ -1,3 +1,9 @@
 [submodule "atmel-studio/xLoader"]
 	path = atmel-studio/xLoader
 	url = https://github.com/binaryupdates/xLoader.git
+[submodule "eagle/libraries/SparkFun-Eagle-Libraries"]
+	path = eagle/libraries/SparkFun-Eagle-Libraries
+	url = https://github.com/sparkfun/SparkFun-Eagle-Libraries.git
+[submodule "eagle/libraries/Adafruit-Eagle-Library"]
+	path = eagle/libraries/Adafruit-Eagle-Library
+	url = https://github.com/adafruit/Adafruit-Eagle-Library.git

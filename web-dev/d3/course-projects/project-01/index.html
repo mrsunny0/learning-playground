@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- custom styles -->
+    <style>
+        h2, p {
+            margin: 10px 0;
+        }
+        header {
+            margin-bottom: 40px;
+        }
+        .tip {
+            padding: 10px;
+            background: #333;
+            color: #fff;
+        }
+        .tip .delete {
+            color: hotpink;
+            font-size: 0.8em;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body class="indigo">
+
+    <header class="indigo darken-1 section">
+        <h2 class="center white-text">Page</h2>
+        <p class="flow-text grey-text center text-lighten-2">Monthly tracker</p>
+    </header>
+
+    <div class="container section">
+        <div class="row">
+            <div class="col s12 m6">
+                <form class="card z-depth-0">
+                    <div class="card-content">
+                        <span class="card-title indigo-text">Add Item:</span>
+                        <div class="input-field">
+                            <input type="text" id="name">
+                            <label for="name">Item Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="cost">
+                            <label for="cost">Item Cost</label>
+                        </div>
+                        <div class="input-field center">
+                            <button class="btn-large pink white-text">Add Item</button>
+                        </div>
+                        <div class="input-field center">
+                            <p class="red-text" id="error"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col s12 m5 push-m1">
+                <div class="canvas"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBD9RASRRCtjjK2bn93WhGGwgl6SBblhl0",
+        authDomain: "d3-example-86934.firebaseapp.com",
+        databaseURL: "https://d3-example-86934.firebaseio.com",
+        projectId: "d3-example-86934",
+        storageBucket: "d3-example-86934.appspot.com",
+        messagingSenderId: "753152078293",
+        appId: "1:753152078293:web:bb59b747773c8ac6f80d5c"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore()
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+
+    <!-- custom js -->
+    <script src="index.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>
