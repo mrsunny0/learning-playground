@@ -5,11 +5,15 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
+// MCU variables
+#define LEDPIN PORTD6
+#define delay 1000
+
 /************************************************************************/
 /* Setup                                                                */
 /************************************************************************/
 void setup() {
-	DDRD = (1<<PORTD7);
+	DDRD = (1<<LEDPIN);
 }
 
 /************************************************************************/
@@ -20,8 +24,8 @@ int main(void)
 	setup();
     while (1) 
     {
-		PORTD ^= (1<<PORTD7);
-		_delay_ms(100);
+		PORTD ^= (1<<LEDPIN);
+		_delay_ms(delay);
     }
 }
 
