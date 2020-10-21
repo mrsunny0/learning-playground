@@ -1,14 +1,11 @@
-#define F_CPU 16000000UL
+#ifndef F_CPU
+	#define F_CPU 16000000UL
+#endif
 
 #include <avr/io.h>
-#include <avr/interrupt.h>
-#include <util/delay.h>
+#include "UART.h"
 
-char receiveChar();
-void sendChar(char d);
-void sendString(char* d);
-
-void setup() {
+void initUART() {
 	UBRR0L = 103; // check 24.11, examples of baud rate settings, table does the math for you
 	UCSR0B |= (1<<TXEN0); // set status of bit
 	UCSR0B |= (1<<RXEN0); // receive enable bit
@@ -16,17 +13,6 @@ void setup() {
 	
 	// enabling interrupt
 	UCSR0B |= (1 << RXCIE0); // Enable the USART receive Complete interrupt (USART_RXC)
-}
-
-int main(void)
-{
-	setup();
-	sei();
-	
-    while (1) 
-    {
-		_delay_ms(1000);
-    }
 }
 
 void sendChar(char data) {
@@ -45,9 +31,3 @@ char receiveChar() {
 	while(!(UCSR0A & (1<<RXC0))); // ready to accept a bit
 	return UDR0; // note, it's the same bit that can be sent
 }
-
-// interrupt receive byte
-ISR(USART_RX_vect) {
-	sendChar(UDR0);
-}
-
